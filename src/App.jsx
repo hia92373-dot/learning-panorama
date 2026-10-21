@@ -142,6 +142,7 @@ export default function App() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group py-1">
             <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain bg-[#F7F5F0]/80 px-2 py-1 rounded-xl transition-transform group-hover:scale-105" />
+            <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
           </a>
 
           {/* Desktop Navigation */}
