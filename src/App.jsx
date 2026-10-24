@@ -13,25 +13,9 @@ import {
   Send
 } from 'lucide-react';
 
-// Custom SVG for Instagram
-const InstagramIcon = ({ size = 20, className = "" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </svg>
-);
+
+// Removed InstagramIcon component
+
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,13 +45,11 @@ export default function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
-    // Construct WhatsApp message URL for direct traffic conversion from Instagram
-    const whatsappNumber = "918130555391"; // Updated with provided number
+    // Directly redirect to WhatsApp
+    const whatsappNumber = "918130555391";
     const text = encodeURIComponent(`Hello Learning Panorama! My name is ${formData.name}. I am enquiring about ${selectedLevel}. Goal: ${formData.goal || 'General learning'}. Message: ${formData.message || 'None'}`);
 
-    setTimeout(() => {
-      window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
-    }, 1200);
+    window.location.href = `https://wa.me/${whatsappNumber}?text=${text}`;
   };
 
   const openEnquiry = (level = 'A1 — Beginner') => {
@@ -110,19 +92,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25 selection:text-[#1D2022]">
 
-      {/* FLOATING INSTAGRAM / WHATSAPP QUICK BADGE */}
+      {/* FLOATING WHATSAPP QUICK BADGE */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 group"
-          title="Follow us on Instagram"
-        >
-          <InstagramIcon size={22} />
-        </a>
         <button
-          onClick={() => openEnquiry('Instagram Quick Enquiry')}
+          onClick={() => openEnquiry('WhatsApp Quick Chat')}
           className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 group"
           title="Chat on WhatsApp"
         >
@@ -153,6 +126,7 @@ export default function App() {
             <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
             <a href="#resources" className="hover:text-[#1D2022] transition-colors">Resources</a>
             <a href="#faqs" className="hover:text-[#1D2022] transition-colors">FAQs</a>
+            <a href="#legal" className="hover:text-[#1D2022] transition-colors">Legal & Policies</a>
           </nav>
 
           {/* Primary CTA */}
@@ -190,6 +164,7 @@ export default function App() {
               <a href="#instructor" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Instructor</a>
               <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Resources</a>
               <a href="#faqs" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">FAQs</a>
+              <a href="#legal" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Legal & Policies</a>
               <button
                 onClick={() => { setMobileMenuOpen(false); openEnquiry('General Enquiry'); }}
                 className="mt-2 w-full bg-[#1D2022] text-[#F7F5F0] py-3 rounded-full text-center font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors"
@@ -278,27 +253,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* INSTAGRAM BANNER NOTICE */}
-      <motion.section
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 0.5 }}
-        className="bg-[#E9E5DC]/60 border-y border-[#E9E5DC] py-4 px-6"
-      >
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
-            <InstagramIcon size={20} className="text-[#C4A779]" />
-            <span className="text-sm font-medium text-[#1D2022]">Came from Instagram? Welcome! Claim your free beginner vocabulary checklist below or book a slot.</span>
-          </div>
-          <button
-            onClick={() => openEnquiry('Instagram Traffic Special Enquiry')}
-            className="text-xs font-semibold uppercase tracking-wider bg-[#1D2022] text-[#F7F5F0] px-4 py-2 rounded-full hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors"
-          >
-            Claim via WhatsApp →
-          </button>
-        </div>
-      </motion.section>
+      {/* INSTAGRAM BANNER NOTICE (REMOVED) */}
+      <div className="hidden"></div>
 
       {/* SECTION 3 — COURSE PROGRAMMES */}
       <section id="courses" className="py-24 px-6 bg-[#F7F5F0]">
@@ -833,9 +789,6 @@ export default function App() {
               A refined German-language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence. Perfect for Instagram students.
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors">
-                <InstagramIcon size={18} />
-              </a>
               <button onClick={() => openEnquiry('WhatsApp Footer')} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors">
                 <MessageCircle size={18} />
               </button>
@@ -871,8 +824,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto pt-8 border-t border-[#E9E5DC]/10 flex flex-col md:flex-row items-center justify-between text-xs text-[#E9E5DC]/50">
           <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+            <a href="#terms" className="hover:text-[#C4A779] transition-colors">Terms and Conditions</a>
+            <a href="#privacy" className="hover:text-[#C4A779] transition-colors">Privacy Policy</a>
+            <a href="#refund" className="hover:text-[#C4A779] transition-colors">Refund Policy</a>
           </div>
         </div>
       </footer>
@@ -954,7 +908,6 @@ export default function App() {
                     <option value="German A1 — Beginner">German A1 — Beginner</option>
                     <option value="German A2 — Elementary">German A2 — Elementary</option>
                     <option value="German B1 — Intermediate">German B1 — Intermediate</option>
-                    <option value="Instagram Traffic Special Enquiry">Instagram Traffic Special Enquiry</option>
                     <option value="General Enquiry">General Enquiry</option>
                   </select>
                 </div>
