@@ -94,6 +94,9 @@ export default function App() {
 
       {/* FLOATING WHATSAPP QUICK BADGE */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <div id="terms" className="hidden"></div>
+        <div id="privacy" className="hidden"></div>
+        <div id="refund" className="hidden"></div>
         <button
           onClick={() => openEnquiry('WhatsApp Quick Chat')}
           className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 group"
