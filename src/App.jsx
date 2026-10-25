@@ -138,12 +138,11 @@ export default function App() {
           {/* Primary CTA */}
           <div className="hidden md:flex items-center gap-4">
             <button
-              onClick={() => openEnquiry('General Enquiry')}
+              onClick={() => window.location.href = 'https://wa.me/+918744828310'}
               className="bg-[#1D2022] text-[#F7F5F0] px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-all duration-300 shadow-sm hover:shadow"
             >
               Enquire Now
             </button>
-            <p className="text-sm text-[#E9E5DC]/70">+91 8744828310</p>
           </div>
 
           {/* Mobile Menu Button */}
