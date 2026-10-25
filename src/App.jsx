@@ -135,7 +135,10 @@ export default function App() {
             <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
             <a href="#resources" className="hover:text-[#1D2022] transition-colors">Resources</a>
             <a href="#faqs" className="hover:text-[#1D2022] transition-colors">FAQs</a>
-            <a href="#legal" className="hover:text-[#1D2022] transition-colors">Legal & Policies</a>
+            <button onClick={() => {
+              const footer = document.getElementById('legal-footer');
+              if (footer) footer.scrollIntoView({ behavior: 'smooth' });
+            }} className="hover:text-[#1D2022] transition-colors text-left bg-transparent cursor-pointer">Legal & Policies</button>
           </nav>
 
           {/* Primary CTA */}
@@ -789,7 +792,7 @@ export default function App() {
       </motion.section>
 
       {/* SECTION 10 — FOOTER */}
-      <footer className="bg-[#1D2022] text-[#E9E5DC] border-t border-[#C4A779]/20 pt-16 pb-12 px-6">
+      <footer id="legal-footer" className="bg-[#1D2022] text-[#E9E5DC] border-t border-[#C4A779]/20 pt-16 pb-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 
           <div className="md:col-span-2">
