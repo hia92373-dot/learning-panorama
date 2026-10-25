@@ -58,11 +58,10 @@ export default function App() {
     setModalOpen(true);
   };
 
-  const openEnquiry = (level = 'A1 — Beginner') => {
-    setSelectedLevel(level);
-    setActivePolicy(null);
-    setFormSubmitted(false);
-    setModalOpen(true);
+  const openEnquiry = (level = 'General Enquiry') => {
+    const whatsappNumber = "918744828310";
+    const text = encodeURIComponent(`Hello Learning Panorama! I am enquiring about: ${level}. Please share more details.`);
+    window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
   };
 
   const faqs = [
@@ -794,7 +793,7 @@ export default function App() {
               <img src="/logo.png" alt="Learning Panorama Logo" className="h-12 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-sm text-[#E9E5DC]/70 max-w-sm leading-relaxed mb-6">
-              A refined German-language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence. Perfect for Instagram students.
+              A refined German-language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence.
             </p>
             <div className="flex gap-4">
               <button onClick={() => openEnquiry('WhatsApp Footer')} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors">
@@ -815,9 +814,9 @@ export default function App() {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-semibold text-[#F7F5F0] mb-4">Contact & Instagram</h4>
+            <h4 className="font-serif text-lg font-semibold text-[#F7F5F0] mb-4">Contact Us</h4>
             <p className="text-sm text-[#E9E5DC]/70 mb-4 leading-relaxed">
-              Ready to begin or coming from our Instagram page? Send us a quick message.
+              Ready to begin your German language journey? Send us a quick message.
             </p>
             <button
               onClick={() => openEnquiry('General Enquiry')}
