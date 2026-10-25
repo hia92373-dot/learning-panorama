@@ -47,7 +47,7 @@ export default function App() {
     e.preventDefault();
     setFormSubmitted(true);
     // Directly redirect to WhatsApp
-    const whatsappNumber = "918130555391";
+    const whatsappNumber = "918744828310";
     const text = encodeURIComponent(`Hello Learning Panorama! My name is ${formData.name}. I am enquiring about ${selectedLevel}. Goal: ${formData.goal || 'General learning'}. Message: ${formData.message || 'None'}`);
 
     window.location.href = `https://wa.me/${whatsappNumber}?text=${text}`;
@@ -143,6 +143,7 @@ export default function App() {
             >
               Enquire Now
             </button>
+            <p className="text-sm text-[#E9E5DC]/70">+91 8744828310</p>
           </div>
 
           {/* Mobile Menu Button */}
