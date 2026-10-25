@@ -60,7 +60,7 @@ export default function App() {
 
   const openEnquiry = (level = 'General Enquiry') => {
     const whatsappNumber = "918744828310";
-    const text = encodeURIComponent(`Hello Learning Panorama! I am enquiring about: ${level}. Please share more details.`);
+    const text = encodeURIComponent(`Hi! - I'm interested in Learning Panorama's German language course. Please share the course details.`);
     window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
   };
 
@@ -144,7 +144,11 @@ export default function App() {
           {/* Primary CTA */}
           <div className="hidden md:flex items-center gap-4">
             <button
-              onClick={() => window.location.href = 'https://wa.me/+918744828310'}
+              onClick={() => {
+                const whatsappNumber = "918744828310";
+                const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
+                window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+              }}
               className="bg-[#1D2022] text-[#F7F5F0] px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-all duration-300 shadow-sm hover:shadow"
             >
               Enquire Now
