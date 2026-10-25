@@ -90,8 +90,12 @@ export default function App() {
       a: "Yes, our structured progression equips you with the grammar, vocabulary, and conversational fluency needed for standard Goethe or Telc examinations."
     },
     {
+      q: "Will I receive recorded sessions of the classes?",
+      a: "Recorded sessions are provided specifically for instances where a student is absent. We do not provide daily recordings for every session to encourage live interaction and consistent attendance."
+    },
+    {
       q: "How can I enrol?",
-      a: "Simply click 'Enquire Now' on any course or page to fill out our quick enquiry form, which connects you directly to our team via WhatsApp."
+      a: "Simply click 'Enquire Now' or 'Enquire via WhatsApp' on any course or page to connect directly with our team via WhatsApp for batch availability and registration details."
     }
   ];
 
