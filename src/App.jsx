@@ -10,30 +10,24 @@ import {
   Globe,
   Award,
   BookOpen,
-  Send
+  Send,
+  ArrowLeft
 } from 'lucide-react';
-
-
-// Removed InstagramIcon component
-
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
+  const [currentPath, setCurrentPath] = useState(window.location.hash || window.location.pathname);
 
-  // Enquiry & Instagram Linktree Modal state
-  const [modalOpen, setModalOpen] = useState(false);
-  const [activePolicy, setActivePolicy] = useState(null);
-  const [selectedLevel, setSelectedLevel] = useState('A1 — Beginner');
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    goal: '',
-    message: ''
-  });
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentPath(window.location.hash || window.location.pathname);
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,24 +37,9 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    // Directly redirect to WhatsApp
-    const whatsappNumber = "918744828310";
-    const text = encodeURIComponent(`Hello Learning Panorama! My name is ${formData.name}. I am enquiring about ${selectedLevel}. Goal: ${formData.goal || 'General learning'}. Message: ${formData.message || 'None'}`);
-
-    window.location.href = `https://wa.me/${whatsappNumber}?text=${text}`;
-  };
-
-  const openPolicy = (policy) => {
-    setActivePolicy(policy);
-    setModalOpen(true);
-  };
-
   const openEnquiry = (level = 'General Enquiry') => {
     const whatsappNumber = "918744828310";
-    const text = encodeURIComponent(`Hi! - I'm interested in Learning Panorama's German language course. Please share the course details.`);
+    const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
     window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
   };
 
@@ -99,9 +78,127 @@ export default function App() {
     }
   ];
 
+  // Render Policy Pages if requested via hash/path
+  if (currentPath === '#terms' || currentPath === '/terms') {
+    return (
+      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
+              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
+            </a>
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+              <ArrowLeft size={16} /> Back to Home
+            </a>
+          </div>
+        </header>
+        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Terms and Conditions</h1>
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
+            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">1. Introduction</h2>
+            <p>Welcome to Learning Panorama. These Terms and Conditions govern your access to and use of our website, online learning services, courses, educational materials, and related services.</p>
+            <p>By accessing our website, registering for a course, or using our services, you agree to these Terms and Conditions. If you do not agree, please discontinue using our services.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">2. About Our Services</h2>
+            <p>Learning Panorama provides online educational and training services. Our initial offering focuses on beginner-level German language learning through online classes, learning materials, exercises, assignments, and other educational resources as applicable to the enrolled course.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">3. Registration and Student Accounts</h2>
+            <p>Students may be required to provide accurate information when registering for a demo session, enrolling in a course, or creating an account. You are responsible for providing accurate information, maintaining login credentials, and using your account only for authorised educational purposes.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">4. Course Enrolment and Fees</h2>
+            <p>Course enrolment is confirmed only after applicable registration requirements and payment have been received or confirmed by Learning Panorama. Fees and deadlines will be communicated prior to payment.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">5. Student Conduct & Intellectual Property</h2>
+            <p>Students are expected to behave respectfully. Harassment, disruptive behaviour, or unauthorized sharing of course materials, notes, and recordings is strictly prohibited. All intellectual property on this website belongs to Learning Panorama.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">6. Governing Law</h2>
+            <p>These Terms and Conditions are governed by the laws of India. For any questions, contact us at learningpanorama1@gmail.com.</p>
+          </div>
+        </main>
+        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
+          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
+            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  if (currentPath === '#privacy' || currentPath === '/privacy') {
+    return (
+      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
+              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
+            </a>
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+              <ArrowLeft size={16} /> Back to Home
+            </a>
+          </div>
+        </header>
+        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Privacy Policy</h1>
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
+            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">1. Introduction</h2>
+            <p>Learning Panorama ("we", "our", or "us") respects your privacy and is committed to handling personal information responsibly. This Privacy Policy explains how we collect, use, store, disclose, and protect personal information.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">2. Information We Collect</h2>
+            <p>We may collect personal and contact info (full name, email address, mobile/WhatsApp number), educational preferences, account details, and communications when you interact with us or register for our courses.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">3. How We Use Your Information</h2>
+            <p>We use your information to respond to enquiries, deliver live classes and learning materials, process enrolments, send schedules and reminders, and meet legal obligations. We do not sell your personal information to third parties.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">4. Data Security & Retention</h2>
+            <p>We take reasonable technical measures to secure your personal data. Information is retained only as long as necessary for educational services and legal compliance.</p>
+          </div>
+        </main>
+        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
+          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
+            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  if (currentPath === '#refund' || currentPath === '/refund') {
+    return (
+      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
+              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
+            </a>
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+              <ArrowLeft size={16} /> Back to Home
+            </a>
+          </div>
+        </header>
+        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Refund Policy</h1>
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
+            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">Refund Policy</h2>
+            <p>We want you to be satisfied, so all eligible courses purchased on Learning Panorama can be refunded within <strong>2 days</strong>, provided the request meets our refund policy guidelines.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">How to submit a refund request:</h2>
+            <p>Email our team at learningpanorama1@gmail.com with your purchase details (date, payment method) and reason for refund. Refunds are issued via the original payment method within 24-48 hours.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">Our 2-Day Policy:</h2>
+            <p>Payments are disbursed to instructors after 2 days, so we cannot process refund requests received after this 2-day window.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">Denied Refunds:</h2>
+            <p>Refunds may be denied in cases of abuse, such as downloading/consuming a significant portion of the course before requesting a refund or violating our Terms and Conditions.</p>
+          </div>
+        </main>
+        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
+          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
+            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25 selection:text-[#1D2022]">
 
+      {/* FLOATING WHATSAPP QUICK BADGE */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
         <button
           onClick={() => openEnquiry('WhatsApp Quick Chat')}
@@ -137,10 +234,6 @@ export default function App() {
             <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
             <a href="#resources" className="hover:text-[#1D2022] transition-colors">Resources</a>
             <a href="#faqs" className="hover:text-[#1D2022] transition-colors">FAQs</a>
-            <button onClick={() => {
-              const footer = document.getElementById('legal-footer');
-              if (footer) footer.scrollIntoView({ behavior: 'smooth' });
-            }} className="hover:text-[#1D2022] transition-colors text-left bg-transparent cursor-pointer">Legal & Policies</button>
           </nav>
 
           {/* Primary CTA */}
@@ -188,9 +281,6 @@ export default function App() {
               <a href="#instructor" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Instructor</a>
               <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Resources</a>
               <a href="#faqs" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">FAQs</a>
-              <button onClick={() => { setMobileMenuOpen(false); openPolicy('terms'); }} className="text-lg font-medium text-[#1D2022] text-left">Terms and Conditions</button>
-              <button onClick={() => { setMobileMenuOpen(false); openPolicy('privacy'); }} className="text-lg font-medium text-[#1D2022] text-left">Privacy Policy</button>
-              <button onClick={() => { setMobileMenuOpen(false); openPolicy('refund'); }} className="text-lg font-medium text-[#1D2022] text-left">Refund Policy</button>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -668,7 +758,53 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 6 — CONTACT US */}
+      {/* SECTION 6 — MEET THE INSTRUCTOR */}
+      <section id="instructor" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl mx-auto bg-white rounded-3xl border border-[#E9E5DC] p-8 md:p-16 shadow-sm"
+        >
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+
+            <div className="md:col-span-5">
+              <div className="aspect-[4/5] rounded-2xl bg-[#E9E5DC] overflow-hidden relative shadow">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+                  alt="Instructor Portrait"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="md:col-span-7 flex flex-col justify-center">
+              <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">PERSONAL MENTORSHIP</span>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1D2022] mb-6">Learn with a personal approach.</h2>
+              <p className="text-[#626262] leading-relaxed mb-6">
+                Learning Panorama is built around a thoughtful, structured approach to learning German, with an emphasis on truly understanding the language and using it with natural confidence.
+              </p>
+
+              <div className="space-y-4 pt-4 border-t border-[#E9E5DC] text-sm">
+                <div>
+                  <span className="font-semibold text-[#1D2022] block">Dedicated Guidance</span>
+                  <span className="text-[#626262]">Small cohort sizes ensuring individualized attention and feedback.</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-[#1D2022] block">Pedagogical Focus</span>
+                  <span className="text-[#626262]">Clear explanations of complex grammatical concepts tailored for English speakers.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </motion.div>
+      </section>
+
+      {/* SECTION 6.5 — CONTACT US */}
       <section id="contact" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -718,52 +854,6 @@ export default function App() {
             </div>
           </motion.div>
         </div>
-      </section>
-
-      {/* SECTION 7 — MEET THE INSTRUCTOR */}
-      <section id="instructor" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-5xl mx-auto bg-white rounded-3xl border border-[#E9E5DC] p-8 md:p-16 shadow-sm"
-        >
-
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-
-            <div className="md:col-span-5">
-              <div className="aspect-[4/5] rounded-2xl bg-[#E9E5DC] overflow-hidden relative shadow">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
-                  alt="Instructor Portrait"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="md:col-span-7 flex flex-col justify-center">
-              <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">PERSONAL MENTORSHIP</span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1D2022] mb-6">Learn with a personal approach.</h2>
-              <p className="text-[#626262] leading-relaxed mb-6">
-                Learning Panorama is built around a thoughtful, structured approach to learning German, with an emphasis on truly understanding the language and using it with natural confidence.
-              </p>
-
-              <div className="space-y-4 pt-4 border-t border-[#E9E5DC] text-sm">
-                <div>
-                  <span className="font-semibold text-[#1D2022] block">Dedicated Guidance</span>
-                  <span className="text-[#626262]">Small cohort sizes ensuring individualized attention and feedback.</span>
-                </div>
-                <div>
-                  <span className="font-semibold text-[#1D2022] block">Pedagogical Focus</span>
-                  <span className="text-[#626262]">Clear explanations of complex grammatical concepts tailored for English speakers.</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </motion.div>
       </section>
 
       {/* SECTION 7 — LEARNING RESOURCES */}
@@ -977,199 +1067,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto pt-8 border-t border-[#E9E5DC]/10 flex flex-col md:flex-row items-center justify-between text-xs text-[#E9E5DC]/50">
           <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <button onClick={() => openPolicy('terms')} className="hover:text-[#C4A779] transition-colors">Terms and Conditions</button>
-              <button onClick={() => openPolicy('privacy')} className="hover:text-[#C4A779] transition-colors">Privacy Policy</button>
-              <button onClick={() => openPolicy('refund')} className="hover:text-[#C4A779] transition-colors">Refund Policy</button>
+              <a href="#terms" className="hover:text-[#C4A779] transition-colors">Terms and Conditions</a>
+              <a href="#privacy" className="hover:text-[#C4A779] transition-colors">Privacy Policy</a>
+              <a href="#refund" className="hover:text-[#C4A779] transition-colors">Refund Policy</a>
             </div>
         </div>
       </footer>
-
-      {/* ENQUIRY & POLICIES MODAL */}
-      {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1D2022]/70 backdrop-blur-md">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="bg-[#F7F5F0] rounded-3xl max-w-2xl w-full p-8 border border-[#E9E5DC] shadow-2xl relative max-h-[90vh] overflow-y-auto"
-          >
-
-            <button
-              onClick={() => setModalOpen(false)}
-              className="absolute top-6 right-6 p-2 text-[#1D2022] hover:text-[#C4A779] transition-colors z-10 bg-white/80 rounded-full"
-            >
-              <X size={20} />
-            </button>
-
-            {activePolicy ? (
-              <div className="space-y-6 text-left pr-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779]">LEGAL INFORMATION</span>
-                </div>
-                <h3 className="font-serif text-3xl font-bold text-[#1D2022] mb-4">
-                  {activePolicy === 'terms' && 'Terms and Conditions'}
-                  {activePolicy === 'privacy' && 'Privacy Policy'}
-                  {activePolicy === 'refund' && 'Refund Policy'}
-                </h3>
-
-                {activePolicy === 'terms' && (
-                  <div className="text-sm text-[#626262] space-y-4 leading-relaxed">
-                    <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">1. Introduction</h4>
-                    <p>Welcome to Learning Panorama. These Terms and Conditions govern your access to and use of our website, online learning services, courses, educational materials, and related services.</p>
-                    <p>By accessing our website, registering for a course, or using our services, you agree to these Terms and Conditions. If you do not agree, please discontinue using our services.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">2. About Our Services</h4>
-                    <p>Learning Panorama provides online educational and training services. Our initial offering focuses on beginner-level German language learning through online classes, learning materials, exercises, assignments, and other educational resources as applicable to the enrolled course.</p>
-                    <p>Course details, including the curriculum, duration, schedule, fees, instructor information, and included services, will be communicated before enrolment.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">3. Registration and Student Accounts</h4>
-                    <p>Students may be required to provide accurate information when registering for a demo session, enrolling in a course, or creating an account. You are responsible for providing accurate information, maintaining login credentials, and using your account only for authorised educational purposes.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">4. Course Enrolment and Fees</h4>
-                    <p>Course enrolment is confirmed only after applicable registration requirements and payment have been received or confirmed by Learning Panorama. Fees and deadlines will be communicated prior to payment.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">5. Student Conduct & Intellectual Property</h4>
-                    <p>Students are expected to behave respectfully. Harassment, disruptive behaviour, or unauthorized sharing of course materials, notes, and recordings is strictly prohibited. All intellectual property on this website belongs to Learning Panorama.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">6. Governing Law</h4>
-                    <p>These Terms and Conditions are governed by the laws of India. For any questions, contact us at learningpanorama1@gmail.com.</p>
-                  </div>
-                )}
-
-                {activePolicy === 'privacy' && (
-                  <div className="text-sm text-[#626262] space-y-4 leading-relaxed">
-                    <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">1. Introduction</h4>
-                    <p>Learning Panorama ("we", "our", or "us") respects your privacy and is committed to handling personal information responsibly. This Privacy Policy explains how we collect, use, store, disclose, and protect personal information.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">2. Information We Collect</h4>
-                    <p>We may collect personal and contact info (full name, email address, mobile/WhatsApp number), educational preferences, account details, and communications when you interact with us or register for our courses.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">3. How We Use Your Information</h4>
-                    <p>We use your information to respond to enquiries, deliver live classes and learning materials, process enrolments, send schedules and reminders, and meet legal obligations. We do not sell your personal information to third parties.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">4. Data Security & Retention</h4>
-                    <p>We take reasonable technical measures to secure your personal data. Information is retained only as long as necessary for educational services and legal compliance.</p>
-                  </div>
-                )}
-
-                {activePolicy === 'refund' && (
-                  <div className="text-sm text-[#626262] space-y-4 leading-relaxed">
-                    <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">Refund Policy</h4>
-                    <p>We want you to be satisfied, so all eligible courses purchased on Learning Panorama can be refunded within <strong>2 days</strong>, provided the request meets our refund policy guidelines.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">How to submit a refund request:</h4>
-                    <p>Email our team at learningpanorama1@gmail.com with your purchase details (date, payment method) and reason for refund. Refunds are issued via the original payment method within 24-48 hours.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">Our 2-Day Policy:</h4>
-                    <p>Payments are disbursed to instructors after 2 days, so we cannot process refund requests received after this 2-day window.</p>
-
-                    <h4 className="font-serif text-lg font-bold text-[#1D2022] pt-2">Denied Refunds:</h4>
-                    <p>Refunds may be denied in cases of abuse, such as downloading/consuming a significant portion of the course before requesting a refund or violating our Terms and Conditions.</p>
-                  </div>
-                )}
-
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-semibold hover:bg-[#C4A779] hover:text-[#1D2022] transition-all mt-6"
-                >
-                  Close Policy
-                </button>
-              </div>
-            ) : (
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-semibold tracking-widest uppercase text-[#626262]">INSTAGRAM & WHATSAPP ENQUIRY</span>
-                </div>
-                <h3 className="font-serif text-3xl font-bold text-[#1D2022] mb-2">Let's Connect on WhatsApp</h3>
-                <p className="text-sm text-[#626262] mb-6">Enter your details below. Clicking submit will automatically open WhatsApp with your pre-filled enquiry for <span className="font-semibold text-[#1D2022]">{selectedLevel}</span>.</p>
-
-                {formSubmitted ? (
-                  <div className="bg-[#E9E5DC] p-8 rounded-2xl text-center space-y-3">
-                    <div className="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center mx-auto text-xl">✓</div>
-                    <h4 className="font-serif text-xl font-bold text-[#1D2022]">Redirecting to WhatsApp...</h4>
-                    <p className="text-sm text-[#626262]">If WhatsApp didn't open automatically, please check your popup blocker.</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleFormSubmit} className="space-y-4">
-                    <div>
-                      <label className="block text-xs font-semibold uppercase text-[#626262] mb-1">Your Name</label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        placeholder="e.g. Anna Schmidt"
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E9E5DC] text-[#1D2022] focus:outline-none focus:border-[#C4A779]"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold uppercase text-[#626262] mb-1">Phone / WhatsApp</label>
-                        <input
-                          type="tel"
-                          required
-                          value={formData.phone}
-                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                          placeholder="+49 ..."
-                          className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E9E5DC] text-[#1D2022] focus:outline-none focus:border-[#C4A779]"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-semibold uppercase text-[#626262] mb-1">Email (Optional)</label>
-                        <input
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          placeholder="anna@example.com"
-                          className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E9E5DC] text-[#1D2022] focus:outline-none focus:border-[#C4A779]"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold uppercase text-[#626262] mb-1">Selected Course / Program</label>
-                      <select
-                        value={selectedLevel}
-                        onChange={(e) => setSelectedLevel(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E9E5DC] text-[#1D2022] focus:outline-none focus:border-[#C4A779]"
-                      >
-                        <option value="German A1 — Beginner">German A1 — Beginner</option>
-                        <option value="German A2 — Elementary">German A2 — Elementary</option>
-                        <option value="German B1 — Intermediate">German B1 — Intermediate</option>
-                        <option value="General Enquiry">General Enquiry</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold uppercase text-[#626262] mb-1">Learning Goal (Optional)</label>
-                      <input
-                        type="text"
-                        value={formData.goal}
-                        onChange={(e) => setFormData({...formData, goal: e.target.value})}
-                        placeholder="e.g. Moving to Germany / Goethe exam"
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E9E5DC] text-[#1D2022] focus:outline-none focus:border-[#C4A779]"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full bg-[#25D366] text-white py-4 rounded-2xl font-semibold hover:bg-[#20ba5a] transition-all shadow-lg flex items-center justify-center gap-2"
-                    >
-                      <MessageCircle size={18} />
-                      Continue to WhatsApp Chat
-                    </button>
-                  </form>
-                )}
-              </div>
-            )}
-
-          </motion.div>
-        </div>
-      )}
 
     </div>
   );
