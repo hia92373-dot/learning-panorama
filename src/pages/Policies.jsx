@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, MessageCircle } from 'lucide-react';
 
 const PolicyLayout = ({ title, children }) => {
   useEffect(() => {
@@ -43,6 +43,49 @@ const PolicyLayout = ({ title, children }) => {
     </div>
   );
 };
+
+export const About = () => (
+  <PolicyLayout title="About Us">
+    <div className="text-[#626262] space-y-6 leading-relaxed">
+      <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+
+      <section className="space-y-4">
+        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Who We Are</h2>
+        <p>Learning Panorama is a German language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence. We help beginners build a strong foundation in German through step-by-step lessons and practical practice.</p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Our Mission</h2>
+        <p>Our mission is to make learning accessible, practical, and engaging through structured online education that helps learners build knowledge, develop useful skills, and move closer to their goals.</p>
+      </section>
+    </div>
+  </PolicyLayout>
+);
+
+export const Contact = () => (
+  <PolicyLayout title="Contact Us">
+    <div className="text-[#626262] space-y-6 leading-relaxed">
+      <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+
+      <section className="space-y-4">
+        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Get in Touch</h2>
+        <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Course Enquiries</h2>
+        <p>Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
+        <ul className="list-disc pl-6 space-y-2 text-base">
+          <li>Course structure and topics</li>
+          <li>Upcoming batches and class schedules</li>
+          <li>Course fees and payment details</li>
+          <li>Demo sessions and enrolment</li>
+          <li>General questions about learning German</li>
+        </ul>
+      </section>
+    </div>
+  </PolicyLayout>
+);
 
 export const Terms = () => (
   <PolicyLayout title="Terms and Conditions">
