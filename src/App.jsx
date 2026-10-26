@@ -314,7 +314,6 @@ export default function App() {
             <a href="#journey" className="hover:text-[#1D2022] transition-colors">Journey</a>
             <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
             <a href="#resources" className="hover:text-[#1D2022] transition-colors">Resources</a>
-            <a href="#faqs" className="hover:text-[#1D2022] transition-colors">FAQs</a>
           </nav>
 
           {/* Primary CTA */}
@@ -1151,6 +1150,8 @@ export default function App() {
               <a href="#terms" className="hover:text-[#C4A779] transition-colors">Terms and Conditions</a>
               <a href="#privacy" className="hover:text-[#C4A779] transition-colors">Privacy Policy</a>
               <a href="#refund" className="hover:text-[#C4A779] transition-colors">Refund Policy</a>
+              <a href="#about-us" className="hover:text-[#C4A779] transition-colors">About Us</a>
+              <a href="#contact" className="hover:text-[#C4A779] transition-colors">Contact</a>
             </div>
         </div>
       </footer>
