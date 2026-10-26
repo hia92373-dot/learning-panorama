@@ -51,41 +51,82 @@ export const About = () => (
 
       <section className="space-y-4">
         <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Who We Are</h2>
-        <p>Learning Panorama is a German language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence. We help beginners build a strong foundation in German through step-by-step lessons and practical practice.</p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Our Mission</h2>
+        <p className="italic text-xl text-[#1D2022]">Learn Today. Grow Tomorrow.</p>
+        <p>At Learning Panorama, we believe that learning opens doors to new opportunities, personal growth, and a brighter future.</p>
         <p>Our mission is to make learning accessible, practical, and engaging through structured online education that helps learners build knowledge, develop useful skills, and move closer to their goals.</p>
       </section>
-    </div>
-  </PolicyLayout>
-);
-
-export const Contact = () => (
-  <PolicyLayout title="Contact Us">
-    <div className="text-[#626262] space-y-6 leading-relaxed">
-      <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
 
       <section className="space-y-4">
-        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Get in Touch</h2>
-        <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
+        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Our Approach</h2>
+        <p>We aim to create a supportive learning environment where students can learn step by step, ask questions freely, and develop confidence through consistent practice. We believe that effective learning goes beyond theory — it involves understanding concepts, applying knowledge, and building skills that can be used in real-life situations.</p>
       </section>
 
       <section className="space-y-4">
-        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Course Enquiries</h2>
-        <p>Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
-        <ul className="list-disc pl-6 space-y-2 text-base">
-          <li>Course structure and topics</li>
-          <li>Upcoming batches and class schedules</li>
-          <li>Course fees and payment details</li>
-          <li>Demo sessions and enrolment</li>
-          <li>General questions about learning German</li>
-        </ul>
+        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Our German Language Learning Program</h2>
+        <p>As we begin our journey, we are focusing on online German language education for beginners. Our planned program aims to help learners build a strong foundation in German through grammar, vocabulary, pronunciation, reading, listening, and speaking practice.</p>
+        <p>Whether you are exploring German for career opportunities, higher education, future plans in Germany, or personal interest, we aim to make your learning journey structured, approachable, and rewarding.</p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Our Vision</h2>
+        <p>Our vision is to grow into a trusted learning platform that connects students with quality education, knowledgeable instructors, and opportunities for continuous development.</p>
+        <p>As Learning Panorama grows, we aim to expand our educational offerings while maintaining our commitment to practical learning, learner support, and quality education.</p>
       </section>
     </div>
   </PolicyLayout>
 );
+
+export const Contact = () => {
+  const openWhatsApp = () => {
+    const whatsappNumber = "918744828310";
+    const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
+    window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+  };
+
+  return (
+    <PolicyLayout title="Contact Us">
+      <div className="text-[#626262] space-y-6 leading-relaxed">
+        <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+
+        <section className="space-y-4">
+          <h2 className="font-serif text-2xl font-bold text-[#1D2022]">We'd Love to Hear From You!</h2>
+          <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
+        </section>
+
+        <div className="bg-[#E9E5DC]/50 p-8 rounded-3xl border border-[#E9E5DC]">
+          <h3 className="font-serif text-xl font-bold text-[#1D2022] mb-6">Get in Touch</h3>
+          <ul className="space-y-4 text-base">
+            <li><span className="font-semibold text-[#1D2022]">Business Name:</span> Learning Panorama</li>
+            <li><span className="font-semibold text-[#1D2022]">Email:</span> learningpanorama1@gmail.com</li>
+            <li><span className="font-semibold text-[#1D2022]">WhatsApp:</span> +91 8744828310</li>
+          </ul>
+        </div>
+
+        <section className="space-y-4">
+          <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Course Enquiries</h2>
+          <p>Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
+          <ul className="list-disc pl-6 space-y-2 text-base">
+            <li>Course structure and topics</li>
+            <li>Upcoming batches and class schedules</li>
+            <li>Course fees and payment details</li>
+            <li>Demo sessions and enrolment</li>
+            <li>General questions about learning German</li>
+          </ul>
+        </section>
+
+        <div className="pt-8 border-t border-[#E9E5DC] text-center">
+          <button
+            onClick={openWhatsApp}
+            className="inline-flex items-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20ba5a] transition-all shadow-lg"
+          >
+            <MessageCircle size={20} />
+            Send a Message on WhatsApp
+          </button>
+        </div>
+      </div>
+    </PolicyLayout>
+  );
+};
 
 export const Terms = () => (
   <PolicyLayout title="Terms and Conditions">
