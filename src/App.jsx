@@ -114,7 +114,7 @@ export default function App() {
         </main>
         <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
           <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+            <p>Ãƒâ€šÃ‚Â© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -151,7 +151,7 @@ export default function App() {
         </main>
         <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
           <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+            <p>Ãƒâ€šÃ‚Â© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -188,88 +188,7 @@ export default function App() {
         </main>
         <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
           <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
-          </div>
-        </footer>
-      </div>
-    );
-  }
-
-  if (currentPath === '#about-us' || currentPath === '/about-us') {
-    return (
-      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
-              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
-              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
-            </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
-              <ArrowLeft size={16} /> Back to Home
-            </a>
-          </div>
-        </header>
-        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">About Us</h1>
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
-            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <section className="space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Who We Are</h2>
-              <p>Learning Panorama is a German language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence. We help beginners build a strong foundation in German through step-by-step lessons and practical practice.</p>
-            </section>
-            <section className="space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Our Mission</h2>
-              <p>Our mission is to make learning accessible, practical, and engaging through structured online education that helps learners build knowledge, develop useful skills, and move closer to their goals.</p>
-            </section>
-          </div>
-        </main>
-        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
-          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
-          </div>
-        </footer>
-      </div>
-    );
-  }
-
-  if (currentPath === '#contact' || currentPath === '/contact') {
-    return (
-      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
-              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
-              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
-            </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
-              <ArrowLeft size={16} /> Back to Home
-            </a>
-          </div>
-        </header>
-        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Contact Us</h1>
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
-            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <section className="space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Get in Touch</h2>
-              <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
-            </section>
-            <section className="space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Course Enquiries</h2>
-              <p>Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
-              <ul className="list-disc pl-6 space-y-2 text-base">
-                <li>Course structure and topics</li>
-                <li>Upcoming batches and class schedules</li>
-                <li>Course fees and payment details</li>
-                <li>Demo sessions and enrolment</li>
-                <li>General questions about learning German</li>
-              </ul>
-            </section>
-          </div>
-        </main>
-        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
-          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+            <p>Ãƒâ€šÃ‚Â© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -290,7 +209,7 @@ export default function App() {
         </button>
       </div>
 
-      {/* SECTION 1 — NAVIGATION */}
+      {/* SECTION 1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â NAVIGATION */}
       <motion.header
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -307,9 +226,7 @@ export default function App() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#626262]">
-            <a href="#about-us" className="hover:text-[#1D2022] transition-colors">About Us</a>
             <a href="#courses" className="hover:text-[#1D2022] transition-colors">Courses</a>
-            <a href="#contact" className="hover:text-[#1D2022] transition-colors">Contact</a>
             <a href="#approach" className="hover:text-[#1D2022] transition-colors">Learning Approach</a>
             <a href="#journey" className="hover:text-[#1D2022] transition-colors">Journey</a>
             <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
@@ -351,11 +268,9 @@ export default function App() {
             >
               <button onClick={() => {
                 setMobileMenuOpen(false);
-                const about = document.getElementById('about-us');
-                if (about) about.scrollIntoView({ behavior: 'smooth' });
-              }} className="text-lg font-medium text-[#1D2022] text-left">About Us</button>
-              <a href="#courses" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Courses</a>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Contact</a>
+                const courses = document.getElementById('courses');
+                if (courses) courses.scrollIntoView({ behavior: 'smooth' });
+              }} className="text-lg font-medium text-[#1D2022] text-left">Courses</button>
               <a href="#approach" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Learning Approach</a>
               <a href="#journey" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Journey</a>
               <a href="#instructor" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Instructor</a>
@@ -377,7 +292,7 @@ export default function App() {
         </AnimatePresence>
       </motion.header>
 
-      {/* SECTION 2 — HERO */}
+      {/* SECTION 2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â HERO */}
       <section className="pt-32 pb-20 md:pt-44 md:pb-32 px-6 max-w-7xl mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -442,7 +357,7 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1D2022]/50 via-transparent to-transparent"></div>
 
               <div className="absolute bottom-6 left-6 right-6 bg-[#F7F5F0]/95 backdrop-blur-md p-6 rounded-2xl border border-[#E9E5DC] shadow-lg">
-                <p className="font-serif text-lg font-medium text-[#1D2022] mb-1">“Sprich Deutsch mit Zuversicht.”</p>
+                <p className="font-serif text-lg font-medium text-[#1D2022] mb-1">ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSprich Deutsch mit Zuversicht.ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â</p>
                 <p className="text-xs text-[#626262]">Master grammar, phonetics, and dialogue with expert coaching.</p>
               </div>
             </div>
@@ -457,7 +372,7 @@ export default function App() {
       {/* INSTAGRAM BANNER NOTICE (REMOVED) */}
       <div className="hidden"></div>
 
-      {/* SECTION 3 — COURSE PROGRAMMES */}
+      {/* SECTION 3 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â COURSE PROGRAMMES */}
       <section id="courses" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
@@ -509,7 +424,7 @@ export default function App() {
                 </ul>
               </div>
               <button
-                onClick={() => openEnquiry('German A1 — Beginner')}
+                onClick={() => openEnquiry('German A1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Beginner')}
                 className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
               >
                 Enquire About This Level
@@ -551,7 +466,7 @@ export default function App() {
                 </ul>
               </div>
               <button
-                onClick={() => openEnquiry('German A2 — Elementary')}
+                onClick={() => openEnquiry('German A2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Elementary')}
                 className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
               >
                 Enquire About This Level
@@ -593,7 +508,7 @@ export default function App() {
                 </ul>
               </div>
               <button
-                onClick={() => openEnquiry('German B1 — Intermediate')}
+                onClick={() => openEnquiry('German B1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Intermediate')}
                 className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
               >
                 Enquire About This Level
@@ -606,7 +521,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 4 — LEARNING APPROACH */}
+      {/* SECTION 4 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â LEARNING APPROACH */}
       <section id="approach" className="py-24 px-6 bg-[#1D2022] text-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
@@ -685,7 +600,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 5 — THE LEARNING JOURNEY */}
+      {/* SECTION 5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â THE LEARNING JOURNEY */}
       <section id="journey" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
@@ -768,7 +683,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 5.5 — ABOUT US */}
+      {/* SECTION 5.5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ABOUT US */}
       <section id="about-us" className="py-24 px-6 bg-white border-t border-[#E9E5DC]">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -783,178 +698,8 @@ export default function App() {
             <div className="space-y-12 text-[#626262] text-lg leading-relaxed">
               <div className="space-y-4">
                 <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Welcome to Learning Panorama</h3>
-                <p className="italic text-xl text-[#1D2022]">Learn Today. Grow Tomorrow.</p>
-                <p>At Learning Panorama, we believe that learning opens doors to new opportunities, personal growth, and a brighter future.</p>
-                <p>Our mission is to make learning accessible, practical, and engaging through structured online education that helps learners build knowledge, develop useful skills, and move closer to their goals.</p>
-              </div>
 
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Approach</h3>
-                <p>We aim to create a supportive learning environment where students can learn step by step, ask questions freely, and develop confidence through consistent practice. We believe that effective learning goes beyond theory — it involves understanding concepts, applying knowledge, and building skills that can be used in real-life situations.</p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our German Language Learning Program</h3>
-                <p>As we begin our journey, we are focusing on online German language education for beginners. Our planned program aims to help learners build a strong foundation in German through grammar, vocabulary, pronunciation, reading, listening, and speaking practice.</p>
-                <p>Whether you are exploring German for career opportunities, higher education, future plans in Germany, or personal interest, we aim to make your learning journey structured, approachable, and rewarding.</p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Vision</h3>
-                <p>Our vision is to grow into a trusted learning platform that connects students with quality education, knowledgeable instructors, and opportunities for continuous development.</p>
-                <p>As Learning Panorama grows, we aim to expand our educational offerings while maintaining our commitment to practical learning, learner support, and quality education.</p>
-              </div>
-
-              <div className="space-y-6">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Commitment</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Accessible Learning</span>
-                    <span className="text-sm">Making learning approachable for beginners.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Structured Education</span>
-                    <span className="text-sm">Following a clear, step-by-step learning approach.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Practical Skills</span>
-                    <span className="text-sm">Encouraging practice, participation, and real-world application.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Continuous Growth</span>
-                    <span className="text-sm">Supporting learners as they develop their knowledge and confidence.</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-8 border-t border-[#E9E5DC] text-center">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Begin Your Learning Journey</h3>
-                <p className="mb-6">Every new skill begins with a first step. At Learning Panorama, we want to help you take that step with confidence.</p>
-                <p className="font-serif text-xl font-bold text-[#1D2022]">Learning starts today. Opportunities grow tomorrow.</p>
-                <p className="text-[#C4A779] font-medium mt-2">Learning Panorama — Learn Today. Grow Tomorrow.</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-            {/* SECTION 5.5 — ABOUT US */}
-      <section id="about-us" className="py-24 px-6 bg-white border-t border-[#E9E5DC]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">WHO WE ARE</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">About Us</h2>
-
-            <div className="space-y-12 text-[#626262] text-lg leading-relaxed">
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Welcome to Learning Panorama</h3>
-                <p className="italic text-xl text-[#1D2022]">Learn Today. Grow Tomorrow.</p>
-                <p>At Learning Panorama, we believe that learning opens doors to new opportunities, personal growth, and a brighter future.</p>
-                <p>Our mission is to make learning accessible, practical, and engaging through structured online education that helps learners build knowledge, develop useful skills, and move closer to their goals.</p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Approach</h3>
-                <p>We aim to create a supportive learning environment where students can learn step by step, ask questions freely, and develop confidence through consistent practice. We believe that effective learning goes beyond theory — it involves understanding concepts, applying knowledge, and building skills that can be used in real-life situations.</p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our German Language Learning Program</h3>
-                <p>As we begin our journey, we are focusing on online German language education for beginners. Our planned program aims to help learners build a strong foundation in German through grammar, vocabulary, pronunciation, reading, listening, and speaking practice.</p>
-                <p>Whether you are exploring German for career opportunities, higher education, future plans in Germany, or personal interest, we aim to make your learning journey structured, approachable, and rewarding.</p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Vision</h3>
-                <p>Our vision is to grow into a trusted learning platform that connects students with quality education, knowledgeable instructors, and opportunities for continuous development.</p>
-                <p>As Learning Panorama grows, we aim to expand our educational offerings while maintaining our commitment to practical learning, learner support, and quality education.</p>
-              </div>
-
-              <div className="space-y-6">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Commitment</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Accessible Learning</span>
-                    <span className="text-sm">Making learning approachable for beginners.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Structured Education</span>
-                    <span className="text-sm">Following a clear, step-by-step learning approach.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Practical Skills</span>
-                    <span className="text-sm">Encouraging practice, participation, and real-world application.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Continuous Growth</span>
-                    <span className="text-sm">Supporting learners as they develop their knowledge and confidence.</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-8 border-t border-[#E9E5DC] text-center">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Begin Your Learning Journey</h3>
-                <p className="mb-6">Every new skill begins with a first step. At Learning Panorama, we want to help you take that step with confidence.</p>
-                <p className="font-serif text-xl font-bold text-[#1D2022]">Learning starts today. Opportunities grow tomorrow.</p>
-                <p className="text-[#C4A779] font-medium mt-2">Learning Panorama — Learn Today. Grow Tomorrow.</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 6 — MEET THE INSTRUCTOR */}
-      <section id="instructor" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-5xl mx-auto bg-white rounded-3xl border border-[#E9E5DC] p-8 md:p-16 shadow-sm"
-        >
-
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-
-            <div className="md:col-span-5">
-              <div className="aspect-[4/5] rounded-2xl bg-[#E9E5DC] overflow-hidden relative shadow">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
-                  alt="Instructor Portrait"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="md:col-span-7 flex flex-col justify-center">
-              <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">PERSONAL MENTORSHIP</span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1D2022] mb-6">Learn with a personal approach.</h2>
-              <p className="text-[#626262] leading-relaxed mb-6">
-                Learning Panorama is built around a thoughtful, structured approach to learning German, with an emphasis on truly understanding the language and using it with natural confidence.
-              </p>
-
-              <div className="space-y-4 pt-4 border-t border-[#E9E5DC] text-sm">
-                <div>
-                  <span className="font-semibold text-[#1D2022] block">Dedicated Guidance</span>
-                  <span className="text-[#626262]">Small cohort sizes ensuring individualized attention and feedback.</span>
-                </div>
-                <div>
-                  <span className="font-semibold text-[#1D2022] block">Pedagogical Focus</span>
-                  <span className="text-[#626262]">Clear explanations of complex grammatical concepts tailored for English speakers.</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </motion.div>
-      </section>
-
-      {/* SECTION 6.5 — CONTACT US */}
+      {/* SECTION 6.5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â CONTACT US */}
       <section id="contact" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -1006,59 +751,7 @@ export default function App() {
         </div>
       </section>
 
-            {/* SECTION 6.5 — CONTACT US */}
-      <section id="contact" className="py-24 px-6 bg-[#F7F5F0]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">GET IN TOUCH</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Contact Us</h2>
-
-            <div className="space-y-12 text-[#626262] text-lg leading-relaxed">
-              <p className="font-serif text-2xl font-medium text-[#1D2022]">We'd Love to Hear From You!</p>
-              <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
-
-              <div className="bg-[#E9E5DC]/50 p-8 rounded-3xl border border-[#E9E5DC]">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-6">Get in Touch</h3>
-                <ul className="space-y-4">
-                  <li><span className="font-semibold text-[#1D2022]">Business Name:</span> Learning Panorama</li>
-                  <li><span className="font-semibold text-[#1D2022]">Email:</span> learningpanorama1@gmail.com</li>
-                  <li><span className="font-semibold text-[#1D2022]">WhatsApp:</span> +91 8744828310</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Course Enquiries</h3>
-                <p className="mb-4">Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Course structure and topics</li>
-                  <li>Upcoming batches and class schedules</li>
-                  <li>Course fees and payment details</li>
-                  <li>Demo sessions and enrolment</li>
-                  <li>General questions about learning German</li>
-                </ul>
-              </div>
-
-              <div className="pt-8 border-t border-[#E9E5DC] text-center">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Send Us a Message</h3>
-                <p className="mb-8">Have a question? You can contact us through email or WhatsApp, and we'll get back to you as soon as possible.</p>
-                <button
-                  onClick={() => openEnquiry('General Enquiry')}
-                  className="bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20ba5a] transition-all shadow-lg"
-                >
-                  Send a Message on WhatsApp
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 7 — LEARNING RESOURCES */}
+      {/* SECTION 7 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â LEARNING RESOURCES */}
       <section id="resources" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
@@ -1145,7 +838,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 8 — FREQUENTLY ASKED QUESTIONS */}
+      {/* SECTION 8 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â FREQUENTLY ASKED QUESTIONS */}
       <section id="faqs" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
         <div className="max-w-4xl mx-auto">
 
@@ -1190,7 +883,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 9 — FINAL CALL TO ACTION */}
+      {/* SECTION 9 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â FINAL CALL TO ACTION */}
       <motion.section
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -1222,7 +915,7 @@ export default function App() {
         </div>
       </motion.section>
 
-      {/* SECTION 10 — FOOTER */}
+      {/* SECTION 10 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â FOOTER */}
       <footer id="legal-footer" className="bg-[#1D2022] text-[#E9E5DC] border-t border-[#C4A779]/20 pt-16 pb-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 
@@ -1260,20 +953,20 @@ export default function App() {
               onClick={() => openEnquiry('General Enquiry')}
               className="text-xs font-semibold uppercase tracking-wider text-[#C4A779] hover:underline"
             >
-              Open WhatsApp Chat →
+              Open WhatsApp Chat ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢
             </button>
           </div>
 
         </div>
 
         <div className="max-w-7xl mx-auto pt-8 border-t border-[#E9E5DC]/10 flex flex-col md:flex-row items-center justify-between text-xs text-[#E9E5DC]/50">
-          <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+          <p>Ãƒâ€šÃ‚Â© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#terms" className="hover:text-[#C4A779] transition-colors">Terms and Conditions</a>
-              <a href="#privacy" className="hover:text-[#C4A779] transition-colors">Privacy Policy</a>
-              <a href="#refund" className="hover:text-[#C4A779] transition-colors">Refund Policy</a>
-              <a href="#about-us" className="hover:text-[#C4A779] transition-colors">About Us</a>
-              <a href="#contact" className="hover:text-[#C4A779] transition-colors">Contact</a>
+              <a href="#courses" className="hover:text-[#C4A779] transition-colors">Courses</a>
+              <a href="#approach" className="hover:text-[#C4A779] transition-colors">Learning Approach</a>
+              <a href="#journey" className="hover:text-[#C4A779] transition-colors">Journey</a>
+              <a href="#instructor" className="hover:text-[#C4A779] transition-colors">Instructor</a>
+              <a href="#faqs" className="hover:text-[#C4A779] transition-colors">FAQs</a>
             </div>
         </div>
       </footer>
