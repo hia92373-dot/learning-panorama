@@ -7,12 +7,50 @@ import {
   ArrowRight,
   CheckCircle2,
   MessageCircle,
-  Globe,
-  Award,
-  BookOpen,
-  Send,
   ArrowLeft
 } from 'lucide-react';
+
+const WHATSAPP_NUMBER = "918744828310";
+const PAGE_ROUTES = ['terms', 'privacy', 'refund', 'about', 'contact'];
+
+const openEnquiry = () => {
+  const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+};
+
+/* Shared layout used by every separate page (Terms, Privacy, Refund, About, Contact) */
+function PageLayout({ title, goHome, children }) {
+  return (
+    <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <a href="#" onClick={goHome} className="flex items-center gap-3 group py-1">
+            <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
+            <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
+          </a>
+          <a href="#" onClick={goHome} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+            <ArrowLeft size={16} /> Back to Home
+          </a>
+        </div>
+      </header>
+      <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">{title}</h1>
+        <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
+          {children}
+        </div>
+      </main>
+      <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
+        <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
+          <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+const H2 = ({ children }) => (
+  <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">{children}</h2>
+);
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,10 +58,14 @@ export default function App() {
   const [activeFaq, setActiveFaq] = useState(null);
   const [currentPath, setCurrentPath] = useState(window.location.hash || window.location.pathname);
 
+  const normalisePath = (p) => (p || '').replace(/^[#/]+/, '');
+
   useEffect(() => {
     const handleHashChange = () => {
-      setCurrentPath(window.location.hash || window.location.pathname);
-      window.scrollTo(0, 0);
+      const next = window.location.hash || window.location.pathname;
+      setCurrentPath(next);
+      // Only jump to top when opening a separate page, so in-page section links keep working
+      if (PAGE_ROUTES.includes(normalisePath(next))) window.scrollTo(0, 0);
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
@@ -37,10 +79,9 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const openEnquiry = (level = 'General Enquiry') => {
-    const whatsappNumber = "918744828310";
-    const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
-    window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+  const goHome = () => {
+    window.location.hash = '';
+    setCurrentPath('');
   };
 
   const faqs = [
@@ -78,122 +119,125 @@ export default function App() {
     }
   ];
 
-  // Render Policy Pages if requested via hash/path
-  if (currentPath === '#terms' || currentPath === '/terms') {
+  const page = normalisePath(currentPath);
+
+  /* ---------------- SEPARATE PAGES ---------------- */
+
+  if (page === 'terms') {
     return (
-      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
-              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
-              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
-            </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
-              <ArrowLeft size={16} /> Back to Home
-            </a>
-          </div>
-        </header>
-        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Terms and Conditions</h1>
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
-            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">1. Introduction</h2>
-            <p>Welcome to Learning Panorama. These Terms and Conditions govern your access to and use of our website, online learning services, courses, educational materials, and related services.</p>
-            <p>By accessing our website, registering for a course, or using our services, you agree to these Terms and Conditions. If you do not agree, please discontinue using our services.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">2. About Our Services</h2>
-            <p>Learning Panorama provides online educational and training services. Our initial offering focuses on beginner-level German language learning through online classes, learning materials, exercises, assignments, and other educational resources as applicable to the enrolled course.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">3. Registration and Student Accounts</h2>
-            <p>Students may be required to provide accurate information when registering for a demo session, enrolling in a course, or creating an account. You are responsible for providing accurate information, maintaining login credentials, and using your account only for authorised educational purposes.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">4. Course Enrolment and Fees</h2>
-            <p>Course enrolment is confirmed only after applicable registration requirements and payment have been received or confirmed by Learning Panorama. Fees and deadlines will be communicated prior to payment.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">5. Student Conduct & Intellectual Property</h2>
-            <p>Students are expected to behave respectfully. Harassment, disruptive behaviour, or unauthorized sharing of course materials, notes, and recordings is strictly prohibited. All intellectual property on this website belongs to Learning Panorama.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">6. Governing Law</h2>
-            <p>These Terms and Conditions are governed by the laws of India. For any questions, contact us at learningpanorama1@gmail.com.</p>
-          </div>
-        </main>
-        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
-          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>Ãƒâ€šÃ‚Â© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
-          </div>
-        </footer>
-      </div>
+      <PageLayout title="Terms and Conditions" goHome={goHome}>
+        <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+        <H2>1. Introduction</H2>
+        <p>Welcome to Learning Panorama. These Terms and Conditions govern your access to and use of our website, online learning services, courses, educational materials, and related services.</p>
+        <p>By accessing our website, registering for a course, or using our services, you agree to these Terms and Conditions. If you do not agree, please discontinue using our services.</p>
+        <H2>2. About Our Services</H2>
+        <p>Learning Panorama provides online educational and training services. Our initial offering focuses on beginner-level German language learning through online classes, learning materials, exercises, assignments, and other educational resources as applicable to the enrolled course.</p>
+        <H2>3. Registration and Student Accounts</H2>
+        <p>Students may be required to provide accurate information when registering for a demo session, enrolling in a course, or creating an account. You are responsible for providing accurate information, maintaining login credentials, and using your account only for authorised educational purposes.</p>
+        <H2>4. Course Enrolment and Fees</H2>
+        <p>Course enrolment is confirmed only after applicable registration requirements and payment have been received or confirmed by Learning Panorama. Fees and deadlines will be communicated prior to payment.</p>
+        <H2>5. Student Conduct &amp; Intellectual Property</H2>
+        <p>Students are expected to behave respectfully. Harassment, disruptive behaviour, or unauthorized sharing of course materials, notes, and recordings is strictly prohibited. All intellectual property on this website belongs to Learning Panorama.</p>
+        <H2>6. Governing Law</H2>
+        <p>These Terms and Conditions are governed by the laws of India. For any questions, contact us at learningpanorama1@gmail.com.</p>
+      </PageLayout>
     );
   }
 
-  if (currentPath === '#privacy' || currentPath === '/privacy') {
+  if (page === 'privacy') {
     return (
-      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
-              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
-              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
-            </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
-              <ArrowLeft size={16} /> Back to Home
-            </a>
-          </div>
-        </header>
-        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Privacy Policy</h1>
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
-            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">1. Introduction</h2>
-            <p>Learning Panorama ("we", "our", or "us") respects your privacy and is committed to handling personal information responsibly. This Privacy Policy explains how we collect, use, store, disclose, and protect personal information.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">2. Information We Collect</h2>
-            <p>We may collect personal and contact info (full name, email address, mobile/WhatsApp number), educational preferences, account details, and communications when you interact with us or register for our courses.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">3. How We Use Your Information</h2>
-            <p>We use your information to respond to enquiries, deliver live classes and learning materials, process enrolments, send schedules and reminders, and meet legal obligations. We do not sell your personal information to third parties.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">4. Data Security & Retention</h2>
-            <p>We take reasonable technical measures to secure your personal data. Information is retained only as long as necessary for educational services and legal compliance.</p>
-          </div>
-        </main>
-        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
-          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>Ãƒâ€šÃ‚Â© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
-          </div>
-        </footer>
-      </div>
+      <PageLayout title="Privacy Policy" goHome={goHome}>
+        <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+        <H2>1. Introduction</H2>
+        <p>Learning Panorama ("we", "our", or "us") respects your privacy and is committed to handling personal information responsibly. This Privacy Policy explains how we collect, use, store, disclose, and protect personal information.</p>
+        <H2>2. Information We Collect</H2>
+        <p>We may collect personal and contact info (full name, email address, mobile/WhatsApp number), educational preferences, account details, and communications when you interact with us or register for our courses.</p>
+        <H2>3. How We Use Your Information</H2>
+        <p>We use your information to respond to enquiries, deliver live classes and learning materials, process enrolments, send schedules and reminders, and meet legal obligations. We do not sell your personal information to third parties.</p>
+        <H2>4. Data Security &amp; Retention</H2>
+        <p>We take reasonable technical measures to secure your personal data. Information is retained only as long as necessary for educational services and legal compliance.</p>
+      </PageLayout>
     );
   }
 
-  if (currentPath === '#refund' || currentPath === '/refund') {
+  if (page === 'refund') {
     return (
-      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
-              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
-              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
-            </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
-              <ArrowLeft size={16} /> Back to Home
-            </a>
-          </div>
-        </header>
-        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Refund Policy</h1>
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
-            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">Refund Policy</h2>
-            <p>We want you to be satisfied, so all eligible courses purchased on Learning Panorama can be refunded within <strong>2 days</strong>, provided the request meets our refund policy guidelines.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">How to submit a refund request:</h2>
-            <p>Email our team at learningpanorama1@gmail.com with your purchase details (date, payment method) and reason for refund. Refunds are issued via the original payment method within 24-48 hours.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">Our 2-Day Policy:</h2>
-            <p>Payments are disbursed to instructors after 2 days, so we cannot process refund requests received after this 2-day window.</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">Denied Refunds:</h2>
-            <p>Refunds may be denied in cases of abuse, such as downloading/consuming a significant portion of the course before requesting a refund or violating our Terms and Conditions.</p>
-          </div>
-        </main>
-        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
-          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>Ãƒâ€šÃ‚Â© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
-          </div>
-        </footer>
-      </div>
+      <PageLayout title="Refund Policy" goHome={goHome}>
+        <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
+        <H2>Refund Policy</H2>
+        <p>We want you to be satisfied, so all eligible courses purchased on Learning Panorama can be refunded within <strong>2 days</strong>, provided the request meets our refund policy guidelines.</p>
+        <H2>How to submit a refund request:</H2>
+        <p>Email our team at learningpanorama1@gmail.com with your purchase details (date, payment method) and reason for refund. Refunds are issued via the original payment method within 24-48 hours.</p>
+        <H2>Our 2-Day Policy:</H2>
+        <p>Payments are disbursed to instructors after 2 days, so we cannot process refund requests received after this 2-day window.</p>
+        <H2>Denied Refunds:</H2>
+        <p>Refunds may be denied in cases of abuse, such as downloading/consuming a significant portion of the course before requesting a refund or violating our Terms and Conditions.</p>
+      </PageLayout>
     );
   }
+
+  if (page === 'about') {
+    return (
+      <PageLayout title="About Us" goHome={goHome}>
+        {/* Replace the text below with your own About Us content */}
+        <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Welcome to Learning Panorama</h2>
+        <p>Learning Panorama is a German-language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence.</p>
+        <p>Our initial offering is an online German language program for beginners, taught through live interactive sessions, guided speaking practice, and regular revision, so you can build your skills step by step.</p>
+        <p>Whether you are learning German for study, work, travel, or personal growth, we are here to help you take the next step.</p>
+        <div className="pt-4">
+          <button
+            onClick={openEnquiry}
+            className="bg-[#1D2022] text-[#F7F5F0] px-8 py-4 rounded-full font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-all duration-300"
+          >
+            Enquire via WhatsApp
+          </button>
+        </div>
+      </PageLayout>
+    );
+  }
+
+  if (page === 'contact') {
+    return (
+      <PageLayout title="Contact Us" goHome={goHome}>
+        <p className="font-serif text-2xl font-medium text-[#1D2022]">We'd Love to Hear From You!</p>
+        <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
+
+        <div className="bg-[#E9E5DC]/50 p-8 rounded-3xl border border-[#E9E5DC]">
+          <h2 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Get in Touch</h2>
+          <ul className="space-y-3">
+            <li><span className="font-semibold text-[#1D2022]">Business Name:</span> Learning Panorama</li>
+            <li><span className="font-semibold text-[#1D2022]">Email:</span> learningpanorama1@gmail.com</li>
+            <li><span className="font-semibold text-[#1D2022]">WhatsApp:</span> +91 8744828310</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Course Enquiries</h2>
+          <p className="mb-3">Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Course structure and topics</li>
+            <li>Upcoming batches and class schedules</li>
+            <li>Course fees and payment details</li>
+            <li>Demo sessions and enrolment</li>
+            <li>General questions about learning German</li>
+          </ul>
+        </div>
+
+        <div className="pt-6 border-t border-[#E9E5DC] text-center">
+          <h2 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Send Us a Message</h2>
+          <p className="mb-6">Have a question? You can contact us through email or WhatsApp, and we'll get back to you as soon as possible.</p>
+          <button
+            onClick={openEnquiry}
+            className="bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20ba5a] transition-all shadow-lg"
+          >
+            Send a Message on WhatsApp
+          </button>
+        </div>
+      </PageLayout>
+    );
+  }
+
+  /* ---------------- HOME PAGE ---------------- */
 
   return (
     <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25 selection:text-[#1D2022]">
@@ -201,7 +245,7 @@ export default function App() {
       {/* FLOATING WHATSAPP QUICK BADGE */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
         <button
-          onClick={() => openEnquiry('WhatsApp Quick Chat')}
+          onClick={openEnquiry}
           className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 group"
           title="Chat on WhatsApp"
         >
@@ -209,7 +253,7 @@ export default function App() {
         </button>
       </div>
 
-      {/* SECTION 1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â NAVIGATION */}
+      {/* SECTION 1 - NAVIGATION */}
       <motion.header
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -236,11 +280,7 @@ export default function App() {
           {/* Primary CTA */}
           <div className="hidden md:flex items-center gap-4">
             <button
-              onClick={() => {
-                const whatsappNumber = "918744828310";
-                const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
-                window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
-              }}
+              onClick={openEnquiry}
               className="bg-[#1D2022] text-[#F7F5F0] px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-all duration-300 shadow-sm hover:shadow"
             >
               Enquire Now
@@ -279,9 +319,7 @@ export default function App() {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  const whatsappNumber = "918744828310";
-                  const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
-                  window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+                  openEnquiry();
                 }}
                 className="mt-2 w-full bg-[#1D2022] text-[#F7F5F0] py-3 rounded-full text-center font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors"
               >
@@ -292,7 +330,7 @@ export default function App() {
         </AnimatePresence>
       </motion.header>
 
-      {/* SECTION 2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â HERO */}
+      {/* SECTION 2 - HERO */}
       <section className="pt-32 pb-20 md:pt-44 md:pb-32 px-6 max-w-7xl mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -327,7 +365,7 @@ export default function App() {
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </a>
               <button
-                onClick={() => openEnquiry('General Enquiry')}
+                onClick={openEnquiry}
                 className="border border-[#1D2022]/30 text-[#1D2022] px-8 py-4 rounded-full font-medium hover:border-[#1D2022] hover:bg-[#1D2022]/5 transition-all duration-300 text-center"
               >
                 Enquire via WhatsApp
@@ -357,7 +395,7 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1D2022]/50 via-transparent to-transparent"></div>
 
               <div className="absolute bottom-6 left-6 right-6 bg-[#F7F5F0]/95 backdrop-blur-md p-6 rounded-2xl border border-[#E9E5DC] shadow-lg">
-                <p className="font-serif text-lg font-medium text-[#1D2022] mb-1">ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSprich Deutsch mit Zuversicht.ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â</p>
+                <p className="font-serif text-lg font-medium text-[#1D2022] mb-1">“Sprich Deutsch mit Zuversicht.”</p>
                 <p className="text-xs text-[#626262]">Master grammar, phonetics, and dialogue with expert coaching.</p>
               </div>
             </div>
@@ -369,10 +407,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* INSTAGRAM BANNER NOTICE (REMOVED) */}
-      <div className="hidden"></div>
-
-      {/* SECTION 3 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â COURSE PROGRAMMES */}
+      {/* SECTION 3 - COURSE PROGRAMMES */}
       <section id="courses" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
@@ -411,7 +446,7 @@ export default function App() {
                 <ul className="space-y-3 mb-8 text-sm text-[#1D2022]">
                   <li className="flex items-center gap-2.5">
                     <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Basic greetings & self-introduction</span>
+                    <span>Basic greetings &amp; self-introduction</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <CheckCircle2 size={16} className="text-[#C4A779]" />
@@ -424,7 +459,7 @@ export default function App() {
                 </ul>
               </div>
               <button
-                onClick={() => openEnquiry('German A1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Beginner')}
+                onClick={openEnquiry}
                 className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
               >
                 Enquire About This Level
@@ -453,7 +488,7 @@ export default function App() {
                 <ul className="space-y-3 mb-8 text-sm text-[#1D2022]">
                   <li className="flex items-center gap-2.5">
                     <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Past & future tense mastery</span>
+                    <span>Past &amp; future tense mastery</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <CheckCircle2 size={16} className="text-[#C4A779]" />
@@ -461,12 +496,12 @@ export default function App() {
                   </li>
                   <li className="flex items-center gap-2.5">
                     <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Expressing opinions & preferences</span>
+                    <span>Expressing opinions &amp; preferences</span>
                   </li>
                 </ul>
               </div>
               <button
-                onClick={() => openEnquiry('German A2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Elementary')}
+                onClick={openEnquiry}
                 className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
               >
                 Enquire About This Level
@@ -499,16 +534,16 @@ export default function App() {
                   </li>
                   <li className="flex items-center gap-2.5">
                     <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Professional & workplace German</span>
+                    <span>Professional &amp; workplace German</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Advanced listening & discussion</span>
+                    <span>Advanced listening &amp; discussion</span>
                   </li>
                 </ul>
               </div>
               <button
-                onClick={() => openEnquiry('German B1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Intermediate')}
+                onClick={openEnquiry}
                 className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
               >
                 Enquire About This Level
@@ -521,7 +556,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 4 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â LEARNING APPROACH */}
+      {/* SECTION 4 - LEARNING APPROACH */}
       <section id="approach" className="py-24 px-6 bg-[#1D2022] text-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
@@ -575,7 +610,7 @@ export default function App() {
               className="border-t border-[#C4A779]/40 pt-6"
             >
               <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">03</span>
-              <h3 className="font-serif text-xl font-semibold mb-3">Speaking & Pronunciation</h3>
+              <h3 className="font-serif text-xl font-semibold mb-3">Speaking &amp; Pronunciation</h3>
               <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
                 Work towards more confident communication through guided practice and active dialogue.
               </p>
@@ -589,7 +624,7 @@ export default function App() {
               className="border-t border-[#C4A779]/40 pt-6"
             >
               <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">04</span>
-              <h3 className="font-serif text-xl font-semibold mb-3">Revision & Practice</h3>
+              <h3 className="font-serif text-xl font-semibold mb-3">Revision &amp; Practice</h3>
               <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
                 Revisit concepts regularly and strengthen your long-term understanding through targeted exercises.
               </p>
@@ -600,7 +635,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â THE LEARNING JOURNEY */}
+      {/* SECTION 5 - THE LEARNING JOURNEY */}
       <section id="journey" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
@@ -683,75 +718,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 5.5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ABOUT US */}
-      <section id="about-us" className="py-24 px-6 bg-white border-t border-[#E9E5DC]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">WHO WE ARE</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">About Us</h2>
-
-            <div className="space-y-12 text-[#626262] text-lg leading-relaxed">
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Welcome to Learning Panorama</h3>
-
-      {/* SECTION 6.5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â CONTACT US */}
-      <section id="contact" className="py-24 px-6 bg-[#F7F5F0]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">GET IN TOUCH</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Contact Us</h2>
-
-            <div className="space-y-12 text-[#626262] text-lg leading-relaxed">
-              <p className="font-serif text-2xl font-medium text-[#1D2022]">We'd Love to Hear From You!</p>
-              <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
-
-              <div className="bg-[#E9E5DC]/50 p-8 rounded-3xl border border-[#E9E5DC]">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-6">Get in Touch</h3>
-                <ul className="space-y-4">
-                  <li><span className="font-semibold text-[#1D2022]">Business Name:</span> Learning Panorama</li>
-                  <li><span className="font-semibold text-[#1D2022]">Email:</span> learningpanorama1@gmail.com</li>
-                  <li><span className="font-semibold text-[#1D2022]">WhatsApp:</span> +91 8744828310</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Course Enquiries</h3>
-                <p className="mb-4">Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Course structure and topics</li>
-                  <li>Upcoming batches and class schedules</li>
-                  <li>Course fees and payment details</li>
-                  <li>Demo sessions and enrolment</li>
-                  <li>General questions about learning German</li>
-                </ul>
-              </div>
-
-              <div className="pt-8 border-t border-[#E9E5DC] text-center">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Send Us a Message</h3>
-                <p className="mb-8">Have a question? You can contact us through email or WhatsApp, and we'll get back to you as soon as possible.</p>
-                <button
-                  onClick={() => openEnquiry('General Enquiry')}
-                  className="bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20ba5a] transition-all shadow-lg"
-                >
-                  Send a Message on WhatsApp
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 7 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â LEARNING RESOURCES */}
+      {/* SECTION 7 - LEARNING RESOURCES */}
       <section id="resources" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
@@ -788,7 +755,7 @@ export default function App() {
                   Essential first steps for absolute beginners embarking on their German language journey.
                 </p>
               </div>
-              <button onClick={() => openEnquiry('Resources Enquiry')} className="text-sm font-semibold text-[#1D2022] flex items-center gap-2 hover:text-[#C4A779] transition-colors">
+              <button onClick={openEnquiry} className="text-sm font-semibold text-[#1D2022] flex items-center gap-2 hover:text-[#C4A779] transition-colors">
                 Read Overview <ArrowRight size={14} />
               </button>
             </motion.article>
@@ -808,7 +775,7 @@ export default function App() {
                   Mastering umlauts, consonant clusters, and natural intonation in spoken German.
                 </p>
               </div>
-              <button onClick={() => openEnquiry('Resources Enquiry')} className="text-sm font-semibold text-[#1D2022] flex items-center gap-2 hover:text-[#C4A779] transition-colors">
+              <button onClick={openEnquiry} className="text-sm font-semibold text-[#1D2022] flex items-center gap-2 hover:text-[#C4A779] transition-colors">
                 Read Overview <ArrowRight size={14} />
               </button>
             </motion.article>
@@ -828,7 +795,7 @@ export default function App() {
                   Practical everyday expressions to build confidence in conversation from day one.
                 </p>
               </div>
-              <button onClick={() => openEnquiry('Resources Enquiry')} className="text-sm font-semibold text-[#1D2022] flex items-center gap-2 hover:text-[#C4A779] transition-colors">
+              <button onClick={openEnquiry} className="text-sm font-semibold text-[#1D2022] flex items-center gap-2 hover:text-[#C4A779] transition-colors">
                 Read Overview <ArrowRight size={14} />
               </button>
             </motion.article>
@@ -838,7 +805,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 8 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â FREQUENTLY ASKED QUESTIONS */}
+      {/* SECTION 8 - FREQUENTLY ASKED QUESTIONS */}
       <section id="faqs" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
         <div className="max-w-4xl mx-auto">
 
@@ -849,7 +816,7 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">QUESTIONS & ANSWERS</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">QUESTIONS &amp; ANSWERS</span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">Frequently Asked Questions</h2>
             <p className="text-[#626262]">Everything you need to know about our courses and learning approach.</p>
           </motion.div>
@@ -883,7 +850,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION 9 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â FINAL CALL TO ACTION */}
+      {/* SECTION 9 - FINAL CALL TO ACTION */}
       <motion.section
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -899,7 +866,7 @@ export default function App() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => openEnquiry('General Enquiry')}
+              onClick={openEnquiry}
               className="w-full sm:w-auto bg-[#C4A779] text-[#1D2022] px-8 py-4 rounded-full font-semibold hover:bg-[#F7F5F0] transition-colors shadow-lg flex items-center justify-center gap-2"
             >
               <MessageCircle size={18} />
@@ -915,7 +882,7 @@ export default function App() {
         </div>
       </motion.section>
 
-      {/* SECTION 10 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â FOOTER */}
+      {/* SECTION 10 - FOOTER */}
       <footer id="legal-footer" className="bg-[#1D2022] text-[#E9E5DC] border-t border-[#C4A779]/20 pt-16 pb-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 
@@ -927,7 +894,7 @@ export default function App() {
               A refined German-language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence.
             </p>
             <div className="flex gap-4">
-              <button onClick={() => openEnquiry('WhatsApp Footer')} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors">
+              <button onClick={openEnquiry} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors">
                 <MessageCircle size={18} />
               </button>
             </div>
@@ -941,6 +908,8 @@ export default function App() {
               <li><a href="#journey" className="hover:text-[#C4A779] transition-colors">Journey</a></li>
               <li><a href="#instructor" className="hover:text-[#C4A779] transition-colors">Instructor</a></li>
               <li><a href="#faqs" className="hover:text-[#C4A779] transition-colors">FAQs</a></li>
+              <li><a href="#about" className="hover:text-[#C4A779] transition-colors">About Us</a></li>
+              <li><a href="#contact" className="hover:text-[#C4A779] transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
@@ -950,24 +919,24 @@ export default function App() {
               Ready to begin your German language journey? Send us a quick message.
             </p>
             <button
-              onClick={() => openEnquiry('General Enquiry')}
+              onClick={openEnquiry}
               className="text-xs font-semibold uppercase tracking-wider text-[#C4A779] hover:underline"
             >
-              Open WhatsApp Chat ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢
+              Open WhatsApp Chat →
             </button>
           </div>
 
         </div>
 
         <div className="max-w-7xl mx-auto pt-8 border-t border-[#E9E5DC]/10 flex flex-col md:flex-row items-center justify-between text-xs text-[#E9E5DC]/50">
-          <p>Ãƒâ€šÃ‚Â© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#courses" className="hover:text-[#C4A779] transition-colors">Courses</a>
-              <a href="#approach" className="hover:text-[#C4A779] transition-colors">Learning Approach</a>
-              <a href="#journey" className="hover:text-[#C4A779] transition-colors">Journey</a>
-              <a href="#instructor" className="hover:text-[#C4A779] transition-colors">Instructor</a>
-              <a href="#faqs" className="hover:text-[#C4A779] transition-colors">FAQs</a>
-            </div>
+          <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <a href="#courses" className="hover:text-[#C4A779] transition-colors">Courses</a>
+            <a href="#approach" className="hover:text-[#C4A779] transition-colors">Learning Approach</a>
+            <a href="#journey" className="hover:text-[#C4A779] transition-colors">Journey</a>
+            <a href="#instructor" className="hover:text-[#C4A779] transition-colors">Instructor</a>
+            <a href="#faqs" className="hover:text-[#C4A779] transition-colors">FAQs</a>
+          </div>
         </div>
       </footer>
 
