@@ -139,7 +139,7 @@ export default function App() {
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Privacy Policy</h1>
           <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
             <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <h2 className="font-serif text-2xl font-bold text(#1D2022) pt-4">1. Introduction</h2>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">1. Introduction</h2>
             <p>Learning Panorama ("we", "our", or "us") respects your privacy and is committed to handling personal information responsibly. This Privacy Policy explains how we collect, use, store, disclose, and protect personal information.</p>
             <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">2. Information We Collect</h2>
             <p>We may collect personal and contact info (full name, email address, mobile/WhatsApp number), educational preferences, account details, and communications when you interact with us or register for our courses.</p>
@@ -489,7 +489,7 @@ export default function App() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           {/* Left Text Column */}
-          <motion-div
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -530,10 +530,10 @@ export default function App() {
               <div className="w-2 h-2 rounded-full bg-[#C4A779] animate-pulse"></div>
               <span>Start with the basics. Build confidence. Keep progressing.</span>
             </div>
-          </motion-div>
+          </motion.div>
 
           {/* Right Editorial Image */}
-          <motion-div
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -556,7 +556,7 @@ export default function App() {
 
             {/* Decorative gold ring */}
             <div className="absolute -top-6 -right-6 w-28 h-28 border border-[#C4A779]/50 rounded-full pointer-events-none hidden sm:block animate-spin"></div>
-          </motion-div>
+          </motion.div>
 
         </div>
       </section>
@@ -568,7 +568,7 @@ export default function App() {
       <section id="courses" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
-          <motion-div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -578,12 +578,12 @@ export default function App() {
             <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">FIND YOUR STARTING POINT</span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">German learning, made clearer.</h2>
             <p className="text-[#626262] text-lg">Choose a learning level that matches your experience and build your skills with a structured approach.</p>
-          </motion-div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
             {/* A1 Card */}
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -622,10 +622,10 @@ export default function App() {
                 Enquire About This Level
                 <ChevronRight size={16} />
               </button>
-            </motion-div>
+            </motion.div>
 
             {/* A2 Card */}
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -664,10 +664,10 @@ export default function App() {
                 Enquire About This Level
                 <ChevronRight size={16} />
               </button>
-            </motion-div>
+            </motion.div>
 
             {/* B1 Card */}
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -706,7 +706,7 @@ export default function App() {
                 Enquire About This Level
                 <ChevronRight size={16} />
               </button>
-            </motion-div>
+            </motion.div>
 
           </div>
 
@@ -717,7 +717,7 @@ export default function App() {
       <section id="approach" className="py-24 px-6 bg-[#1D2022] text-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
-          <motion-div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -727,11 +727,11 @@ export default function App() {
             <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">OUR APPROACH</span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#F7F5F0] mb-4">Learn with clarity. Progress with confidence.</h2>
             <div className="w-16 h-[1px] bg-[#C4A779] mt-6"></div>
-          </motion-div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -743,9 +743,9 @@ export default function App() {
               <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
                 Build your understanding through a clear progression of topics designed for logical retention.
               </p>
-            </motion-div>
+            </motion.div>
 
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -757,9 +757,9 @@ export default function App() {
               <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
                 Develop a stronger foundation in German grammar and sentence structure without unnecessary confusion.
               </p>
-            </motion-div>
+            </motion.div>
 
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -771,9 +771,9 @@ export default function App() {
               <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
                 Work towards more confident communication through guided practice and active dialogue.
               </p>
-            </motion-div>
+            </motion.div>
 
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -785,7 +785,7 @@ export default function App() {
               <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
                 Revisit concepts regularly and strengthen your long-term understanding through targeted exercises.
               </p>
-            </motion-div>
+            </motion.div>
 
           </div>
 
@@ -796,7 +796,7 @@ export default function App() {
       <section id="journey" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
-          <motion-div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -806,11 +806,11 @@ export default function App() {
             <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">YOUR NEXT CHAPTER</span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">Every new skill begins with a first step.</h2>
             <p className="text-[#626262] text-lg">A simple, transparent pathway from absolute beginner to confident speaker.</p>
-          </motion-div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -823,9 +823,9 @@ export default function App() {
               <p className="text-[#626262] text-sm leading-relaxed">
                 Understand the foundations of the German language, alphabet, phonetics, and introductory greetings.
               </p>
-            </motion-div>
+            </motion.div>
 
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -838,9 +838,9 @@ export default function App() {
               <p className="text-[#626262] text-sm leading-relaxed">
                 Develop vocabulary, core grammar rules, and reading comprehension for structured sentences.
               </p>
-            </motion-div>
+            </motion.div>
 
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -853,9 +853,9 @@ export default function App() {
               <p className="text-[#626262] text-sm leading-relaxed">
                 Work on active speaking, listening exercises, reading dialogues, and written expression.
               </p>
-            </motion-div>
+            </motion.div>
 
-            <motion-div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -868,7 +868,7 @@ export default function App() {
               <p className="text-[#626262] text-sm leading-relaxed">
                 Continue towards the proficiency level that matches your personal, academic, or professional goals.
               </p>
-            </motion-div>
+            </motion.div>
 
           </div>
 
@@ -877,7 +877,7 @@ export default function App() {
 
       {/* SECTION 6 — MEET THE INSTRUCTOR */}
       <section id="instructor" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
-        <motion-div
+        <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: false, amount: 0.2 }}
@@ -918,14 +918,14 @@ export default function App() {
 
           </div>
 
-        </motion-div>
+        </motion.div>
       </section>
 
       {/* SECTION 7 — LEARNING RESOURCES */}
       <section id="resources" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
-          <motion-div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -939,7 +939,7 @@ export default function App() {
             <p className="text-[#626262] max-w-md mt-4 md:mt-0 text-sm">
               Articles and guides to help you understand German grammar rules, pronunciation nuances, and study habits.
             </p>
-          </motion-div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
@@ -986,14 +986,14 @@ export default function App() {
             <motion.article
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ y: -5 }}
               className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm"
             >
               <div>
                 <span className="text-xs text-[#626262] uppercase tracking-wider block mb-2 font-semibold">Vocabulary</span>
                 <h3 className="font-serif text-xl font-bold text-[#1D2022] mb-3">Everyday German Phrases to Practise</h3>
-                <p className="text-[#626262] text-sm mb-6 leading-relaxed>
+                <p className="text-[#626262] text-sm mb-6 leading-relaxed">
                   Practical everyday expressions to build confidence in conversation from day one.
                 </p>
               </div>
@@ -1011,26 +1011,26 @@ export default function App() {
       <section id="faqs" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
         <div className="max-w-4xl mx-auto">
 
-          <motion-div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{{ once: false, amount: 0.3 }}
-            transition={{{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">QUESTIONS & ANSWERS</span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">Frequently Asked Questions</h2>
             <p className="text-[#626262]">Everything you need to know about our courses and learning approach.</p>
-          </motion-div>
+          </motion.div>
 
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <motion-div
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
-                transition={{{ duration: 0.4, delay: idx * 0.05 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="bg-[#F7F5F0] rounded-2xl border border-[#E9E5DC] overflow-hidden transition-colors"
               >
                 <button
@@ -1045,7 +1045,7 @@ export default function App() {
                     {faq.a}
                   </div>
                 )}
-              </motion-div>
+              </motion.div>
             ))}
           </div>
 
@@ -1053,11 +1053,11 @@ export default function App() {
       </section>
 
       {/* SECTION 9 — FINAL CALL TO ACTION */}
-      <motion-section
+      <motion.section
         initial={{ opacity: 0, scale: 0.98 }}
-        whileInView={{{ opacity: 1, scale: 1 }}
-        viewport={{{ once: false, amount: 0.3 }}
-        transition={{{ duration: 0.6 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
         className="py-24 px-6 bg-[#1D2022] text-[#F7F5F0] text-center"
       >
         <div className="max-w-3xl mx-auto">
@@ -1082,7 +1082,7 @@ export default function App() {
             </a>
           </div>
         </div>
-      </motion-section>
+      </motion.section>
 
       {/* SECTION 10 — FOOTER */}
       <footer id="legal-footer" className="bg-[#1D2022] text-[#E9E5DC] border-t border-[#C4A779]/20 pt-16 pb-12 px-6">
