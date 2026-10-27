@@ -20,13 +20,25 @@ export default function App() {
   const [activeFaq, setActiveFaq] = useState(null);
   const [currentPath, setCurrentPath] = useState(window.location.hash || window.location.pathname);
 
+  // Client-side navigation keeps About and Contact working on Vercel without a full-page reload.
+  const navigateTo = (path) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+    setMobileMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     const handleHashChange = () => {
       setCurrentPath(window.location.hash || window.location.pathname);
       window.scrollTo(0, 0);
     };
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handleHashChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -84,11 +96,11 @@ export default function App() {
       <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-3 group py-1">
               <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
               <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
             </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
               <ArrowLeft size={16} /> Back to Home
             </a>
           </div>
@@ -126,11 +138,11 @@ export default function App() {
       <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-3 group py-1">
               <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
               <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
             </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
               <ArrowLeft size={16} /> Back to Home
             </a>
           </div>
@@ -163,11 +175,11 @@ export default function App() {
       <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-3 group py-1">
               <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
               <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
             </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
               <ArrowLeft size={16} /> Back to Home
             </a>
           </div>
@@ -200,11 +212,11 @@ export default function App() {
       <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-3 group py-1">
               <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
               <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
             </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
               <ArrowLeft size={16} /> Back to Home
             </a>
           </div>
@@ -242,11 +254,11 @@ export default function App() {
       <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-3 group py-1">
               <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
               <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
             </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
               <ArrowLeft size={16} /> Back to Home
             </a>
           </div>
@@ -327,11 +339,11 @@ export default function App() {
       <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-3 group py-1">
               <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
               <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
             </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+            <a href="/" onClick={(event) => { event.preventDefault(); navigateTo('/'); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
               <ArrowLeft size={16} /> Back to Home
             </a>
           </div>
@@ -420,8 +432,8 @@ export default function App() {
             <a href="#journey" className="hover:text-[#1D2022] transition-colors">Journey</a>
             <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
             <a href="#resources" className="hover:text-[#1D2022] transition-colors">Resources</a>
-            <a href="/about" className="hover:text-[#1D2022] transition-colors">About Us</a>
-            <a href="/contact" className="hover:text-[#1D2022] transition-colors">Contact</a>
+            <a href="/about" onClick={(event) => { event.preventDefault(); navigateTo('/about'); }} className="hover:text-[#1D2022] transition-colors">About Us</a>
+            <a href="/contact" onClick={(event) => { event.preventDefault(); navigateTo('/contact'); }} className="hover:text-[#1D2022] transition-colors">Contact</a>
           </nav>
 
           {/* Primary CTA */}
@@ -459,10 +471,10 @@ export default function App() {
             >
               <button onClick={() => {
                 setMobileMenuOpen(false);
-                window.location.href = '/about';
+                navigateTo('/about');
               }} className="text-lg font-medium text-[#1D2022] text-left">About Us</button>
               <a href="/courses" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Courses</a>
-              <a href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Contact</a>
+              <a href="/contact" onClick={(event) => { event.preventDefault(); navigateTo('/contact'); }} className="text-lg font-medium text-[#1D2022]">Contact</a>
               <a href="#approach" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Learning Approach</a>
               <a href="#journey" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Journey</a>
               <a href="#instructor" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Instructor</a>
@@ -1105,8 +1117,8 @@ export default function App() {
           <div>
             <h4 className="font-serif text-lg font-semibold text-[#F7F5F0] mb-4">Company</h4>
             <ul className="space-y-2.5 text-sm text-[#E9E5DC]/70">
-              <li><a href="/about" className="hover:text-[#C4A779] transition-colors">About Us</a></li>
-              <li><a href="/contact" className="hover:text-[#C4A779] transition-colors">Contact</a></li>
+              <li><a href="/about" onClick={(event) => { event.preventDefault(); navigateTo('/about'); }} className="hover:text-[#C4A779] transition-colors">About Us</a></li>
+              <li><a href="/contact" onClick={(event) => { event.preventDefault(); navigateTo('/contact'); }} className="hover:text-[#C4A779] transition-colors">Contact</a></li>
             </ul>
           </div>
 
@@ -1140,8 +1152,8 @@ export default function App() {
               <a href="#terms" className="hover:text-[#C4A779] transition-colors">Terms and Conditions</a>
               <a href="#privacy" className="hover:text-[#C4A779] transition-colors">Privacy Policy</a>
               <a href="#refund" className="hover:text-[#C4A779] transition-colors">Refund Policy</a>
-              <a href="/about" className="hover:text-[#C4A779] transition-colors">About Us</a>
-              <a href="/contact" className="hover:text-[#C4A779] transition-colors">Contact</a>
+              <a href="/about" onClick={(event) => { event.preventDefault(); navigateTo('/about'); }} className="hover:text-[#C4A779] transition-colors">About Us</a>
+              <a href="/contact" onClick={(event) => { event.preventDefault(); navigateTo('/contact'); }} className="hover:text-[#C4A779] transition-colors">Contact</a>
             </div>
         </div>
       </footer>
