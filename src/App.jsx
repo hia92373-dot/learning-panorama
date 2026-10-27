@@ -985,9 +985,9 @@ export default function App() {
 
             <motion.article
               initial={{ opacity: 0, y: 30 }}
-              whileInView{{ opacity: 1, y: 0 }}
-              transition{{ duration: 0.5, delay: 0.3 }}
-              whileHover{{ y: -5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -5 }}
               className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm"
             >
               <div>
@@ -1014,8 +1014,8 @@ export default function App() {
           <motion-div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport{{ once: false, amount: 0.3 }}
-            transition{{ duration: 0.6 }}
+            viewport={{{ once: false, amount: 0.3 }}
+            transition={{{ duration: 0.6 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">QUESTIONS & ANSWERS</span>
@@ -1028,9 +1028,9 @@ export default function App() {
               <motion-div
                 key={idx}
                 initial={{ opacity: 0, y: 15 }}
-                whileInView{{ opacity: 1, y: 0 }}
-                viewport{{ once: false, amount: 0.2 }}
-                transition{{ duration: 0.4, delay: idx * 0.05 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{{ duration: 0.4, delay: idx * 0.05 }}
                 className="bg-[#F7F5F0] rounded-2xl border border-[#E9E5DC] overflow-hidden transition-colors"
               >
                 <button
@@ -1055,9 +1055,9 @@ export default function App() {
       {/* SECTION 9 — FINAL CALL TO ACTION */}
       <motion-section
         initial={{ opacity: 0, scale: 0.98 }}
-        whileInView{{ opacity: 1, scale: 1 }}
-        viewport{{ once: false, amount: 0.3 }}
-        transition{{ duration: 0.6 }}
+        whileInView={{{ opacity: 1, scale: 1 }}
+        viewport={{{ once: false, amount: 0.3 }}
+        transition={{{ duration: 0.6 }}
         className="py-24 px-6 bg-[#1D2022] text-[#F7F5F0] text-center"
       >
         <div className="max-w-3xl mx-auto">
