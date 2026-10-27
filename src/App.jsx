@@ -139,7 +139,7 @@ export default function App() {
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Privacy Policy</h1>
           <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
             <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">1. Introduction</h2>
+            <h2 className="font-serif text-2xl font-bold text(#1D2022) pt-4">1. Introduction</h2>
             <p>Learning Panorama ("we", "our", or "us") respects your privacy and is committed to handling personal information responsibly. This Privacy Policy explains how we collect, use, store, disclose, and protect personal information.</p>
             <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">2. Information We Collect</h2>
             <p>We may collect personal and contact info (full name, email address, mobile/WhatsApp number), educational preferences, account details, and communications when you interact with us or register for our courses.</p>
@@ -210,24 +210,22 @@ export default function App() {
           </div>
         </header>
         <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Contact Us</h1>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Terms and Conditions</h1>
           <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
             <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <section className="space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Get in Touch</h2>
-              <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
-            </section>
-            <section className="space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Course Enquiries</h2>
-              <p>Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
-              <ul className="list-disc pl-6 space-y-2 text-base">
-                <li>Course structure and topics</li>
-                <li>Upcoming batches and class schedules</li>
-                <li>Course fees and payment details</li>
-                <li>Demo sessions and enrolment</li>
-                <li>General questions about learning German</li>
-              </ul>
-            </section>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">1. Introduction</h2>
+            <p>Welcome to Learning Panorama. These Terms and Conditions govern your access to and use of our website, online learning services, courses, educational materials, and related services.</p>
+            <p>By accessing our website, registering for a course, or using our services, you agree to these Terms and Conditions. If you do not agree, please discontinue using our services.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">2. About Our Services</h2>
+            <p>Learning Panorama provides online educational and training services. Our initial offering focuses on beginner-level German language learning through online classes, learning materials, exercises, assignments, and other educational resources as applicable to the enrolled course.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">3. Registration and Student Accounts</h2>
+            <p>Students may be required to provide accurate information when registering for a demo session, enrolling in a course, or creating an account. You are responsible for providing accurate information, maintaining login credentials, and using your account only for authorised educational purposes.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">4. Course Enrolment and Fees</h2>
+            <p>Course enrolment is confirmed only after applicable registration requirements and payment have been received or confirmed by Learning Panorama. Fees and deadlines will be communicated prior to payment.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">5. Student Conduct & Intellectual Property</h2>
+            <p>Students are expected to behave respectfully. Harassment, disruptive behaviour, or unauthorized sharing of course materials, notes, and recordings is strictly prohibited. All intellectual property on this website belongs to Learning Panorama.</p>
+            <h2 className="font-serif text-2xl font-bold text-[#1D2022] pt-4">6. Governing Law</h2>
+            <p>These Terms and Conditions are governed by the laws of India. For any questions, contact us at learningpanorama1@gmail.com.</p>
           </div>
         </main>
         <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
@@ -239,505 +237,23 @@ export default function App() {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25 selection:text-[#1D2022]">
-
-      {/* FLOATING WHATSAPP QUICK BADGE */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-        <button
-          onClick={() => openEnquiry('WhatsApp Quick Chat')}
-          className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 group"
-          title="Chat on WhatsApp"
-        >
-          <MessageCircle size={22} />
-        </button>
-      </div>
-
-      {/* SECTION 1 — NAVIGATION */}
-      <motion.header
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]' : 'bg-transparent'}`}
-      >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group py-1">
-            <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain bg-[#F7F5F0]/80 px-2 py-1 rounded-xl transition-transform group-hover:scale-105" />
-            <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
-          </a>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#626262]">
-            <a href="#courses" className="hover:text-[#1D2022] transition-colors">Courses</a>
-            <a href="#approach" className="hover:text-[#1D2022] transition-colors">Learning Approach</a>
-            <a href="#journey" className="hover:text-[#1D2022] transition-colors">Journey</a>
-            <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
-            <a href="#resources" className="hover:text-[#1D2022] transition-colors">Resources</a>
-          </nav>
-
-          {/* Primary CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={() => {
-                const whatsappNumber = "918744828310";
-                const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
-                window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
-              }}
-              className="bg-[#1D2022] text-[#F7F5F0] px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-all duration-300 shadow-sm hover:shadow"
-            >
-              Enquire Now
-            </button>
+  if (currentPath === '#about' || currentPath === '/about') {
+    return (
+      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
+              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
+            </a>
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+              <ArrowLeft size={16} /> Back to Home
+            </a>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[#1D2022] hover:text-[#C4A779] transition-colors"
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <div className="space-y-1.5 w-6"><div className="h-0.5 bg-current w-full"></div><div className="h-0.5 bg-current w-4"></div><div className="h-0.5 bg-current w-full"></div></div>}
-          </button>
-        </div>
-
-        {/* Mobile Menu Dropdown */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden absolute top-full left-0 right-0 bg-[#F7F5F0] border-b border-[#E9E5DC] shadow-lg py-6 px-6 flex flex-col gap-4 overflow-hidden"
-            >
-              <button onClick={() => {
-                setMobileMenuOpen(false);
-                const about = document.getElementById('about-us');
-                if (about) about.scrollIntoView({ behavior: 'smooth' });
-              }} className="text-lg font-medium text-[#1D2022] text-left">About Us</button>
-              <a href="#courses" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Courses</a>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Contact</a>
-              <a href="#approach" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Learning Approach</a>
-              <a href="#journey" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Journey</a>
-              <a href="#instructor" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Instructor</a>
-              <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Resources</a>
-              <a href="#faqs" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">FAQs</a>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  const whatsappNumber = "918744828310";
-                  const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
-                  window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
-                }}
-                className="mt-2 w-full bg-[#1D2022] text-[#F7F5F0] py-3 rounded-full text-center font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors"
-              >
-                Enquire Now
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.header>
-
-      {/* SECTION 2 — HERO */}
-      <section className="pt-32 pb-20 md:pt-44 md:pb-32 px-6 max-w-7xl mx-auto overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-          {/* Left Text Column */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 flex flex-col items-start"
-          >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9E5DC] text-[#1D2022] text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
-              <Sparkles size={14} className="text-[#C4A779]" />
-              YOUR GERMAN JOURNEY STARTS HERE
-            </div>
-
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#1D2022] leading-[1.1] mb-6">
-              A new language. <br />
-              <span className="italic font-normal text-[#626262]">A wider world.</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-[#626262] font-normal leading-relaxed max-w-xl mb-10">
-              Build your German skills step by step through structured lessons, practical conversation, and guided learning designed for Instagram learners.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-8">
-              <a
-                href="#courses"
-                className="bg-[#1D2022] text-[#F7F5F0] px-8 py-4 rounded-full font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-all duration-300 text-center shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
-              >
-                Explore Courses
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </a>
-              <button
-                onClick={() => openEnquiry('General Enquiry')}
-                className="border border-[#1D2022]/30 text-[#1D2022] px-8 py-4 rounded-full font-medium hover:border-[#1D2022] hover:bg-[#1D2022]/5 transition-all duration-300 text-center"
-              >
-                Enquire via WhatsApp
-              </button>
-            </div>
-
-            <div className="flex items-center gap-3 text-sm text-[#626262] pt-4 border-t border-[#E9E5DC] w-full">
-              <div className="w-2 h-2 rounded-full bg-[#C4A779] animate-pulse"></div>
-              <span>Start with the basics. Build confidence. Keep progressing.</span>
-            </div>
-          </motion.div>
-
-          {/* Right Editorial Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 relative"
-          >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#E9E5DC] aspect-[4/5] group">
-              <img
-                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1000&auto=format&fit=crop"
-                alt="German Language Study and Books"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1D2022]/50 via-transparent to-transparent"></div>
-
-              <div className="absolute bottom-6 left-6 right-6 bg-[#F7F5F0]/95 backdrop-blur-md p-6 rounded-2xl border border-[#E9E5DC] shadow-lg">
-                <p className="font-serif text-lg font-medium text-[#1D2022] mb-1">“Sprich Deutsch mit Zuversicht.”</p>
-                <p className="text-xs text-[#626262]">Master grammar, phonetics, and dialogue with expert coaching.</p>
-              </div>
-            </div>
-
-            {/* Decorative gold ring */}
-            <div className="absolute -top-6 -right-6 w-28 h-28 border border-[#C4A779]/50 rounded-full pointer-events-none hidden sm:block animate-spin"></div>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* INSTAGRAM BANNER NOTICE (REMOVED) */}
-      <div className="hidden"></div>
-
-      {/* SECTION 3 — COURSE PROGRAMMES */}
-      <section id="courses" className="py-24 px-6 bg-[#F7F5F0]">
-        <div className="max-w-7xl mx-auto">
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">FIND YOUR STARTING POINT</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">German learning, made clearer.</h2>
-            <p className="text-[#626262] text-lg">Choose a learning level that matches your experience and build your skills with a structured approach.</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {/* A1 Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ y: -8 }}
-              className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm hover:shadow-xl group"
-            >
-              <div>
-                <div className="flex justify-between items-start mb-6">
-                  <span className="font-serif text-4xl font-bold text-[#1D2022] group-hover:text-[#C4A779] transition-colors">A1</span>
-                  <span className="text-xs font-semibold tracking-wider uppercase px-3.5 py-1 bg-[#E9E5DC]/70 rounded-full text-[#1D2022]">Beginner</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">German A1</h3>
-                <p className="text-[#626262] text-sm mb-6 leading-relaxed">
-                  Designed for absolute beginners. Establish core vocabulary, present-tense grammar, and simple everyday interactions.
-                </p>
-                <ul className="space-y-3 mb-8 text-sm text-[#1D2022]">
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Basic greetings & self-introduction</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Essential sentence structures</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Everyday conversational basics</span>
-                  </li>
-                </ul>
-              </div>
-              <button
-                onClick={() => openEnquiry('German A1 — Beginner')}
-                className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
-              >
-                Enquire About This Level
-                <ChevronRight size={16} />
-              </button>
-            </motion.div>
-
-            {/* A2 Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -8 }}
-              className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm hover:shadow-xl group"
-            >
-              <div>
-                <div className="flex justify-between items-start mb-6">
-                  <span className="font-serif text-4xl font-bold text-[#1D2022] group-hover:text-[#C4A779] transition-colors">A2</span>
-                  <span className="text-xs font-semibold tracking-wider uppercase px-3.5 py-1 bg-[#E9E5DC]/70 rounded-full text-[#1D2022]">Elementary</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">German A2</h3>
-                <p className="text-[#626262] text-sm mb-6 leading-relaxed">
-                  Expand your fluency. Learn past tenses, describe your background, hobbies, and navigate routine social or professional exchanges.
-                </p>
-                <ul className="space-y-3 mb-8 text-sm text-[#1D2022]">
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Past & future tense mastery</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Expanded vocabulary for daily life</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Expressing opinions & preferences</span>
-                  </li>
-                </ul>
-              </div>
-              <button
-                onClick={() => openEnquiry('German A2 — Elementary')}
-                className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
-              >
-                Enquire About This Level
-                <ChevronRight size={16} />
-              </button>
-            </motion.div>
-
-            {/* B1 Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ y: -8 }}
-              className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm hover:shadow-xl group"
-            >
-              <div>
-                <div className="flex justify-between items-start mb-6">
-                  <span className="font-serif text-4xl font-bold text-[#1D2022] group-hover:text-[#C4A779] transition-colors">B1</span>
-                  <span className="text-xs font-semibold tracking-wider uppercase px-3.5 py-1 bg-[#E9E5DC]/70 rounded-full text-[#1D2022]">Intermediate</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">German B1</h3>
-                <p className="text-[#626262] text-sm mb-6 leading-relaxed">
-                  Achieve independent communication. Handle most situations while travelling and discuss familiar topics with greater nuance.
-                </p>
-                <ul className="space-y-3 mb-8 text-sm text-[#1D2022]">
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Complex sentence structures</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Professional & workplace German</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[#C4A779]" />
-                    <span>Advanced listening & discussion</span>
-                  </li>
-                </ul>
-              </div>
-              <button
-                onClick={() => openEnquiry('German B1 — Intermediate')}
-                className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
-              >
-                Enquire About This Level
-                <ChevronRight size={16} />
-              </button>
-            </motion.div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 4 — LEARNING APPROACH */}
-      <section id="approach" className="py-24 px-6 bg-[#1D2022] text-[#F7F5F0]">
-        <div className="max-w-7xl mx-auto">
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl mb-20"
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">OUR APPROACH</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#F7F5F0] mb-4">Learn with clarity. Progress with confidence.</h2>
-            <div className="w-16 h-[1px] bg-[#C4A779] mt-6"></div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="border-t border-[#C4A779]/40 pt-6"
-            >
-              <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">01</span>
-              <h3 className="font-serif text-xl font-semibold mb-3">Structured Lessons</h3>
-              <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
-                Build your understanding through a clear progression of topics designed for logical retention.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="border-t border-[#C4A779]/40 pt-6"
-            >
-              <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">02</span>
-              <h3 className="font-serif text-xl font-semibold mb-3">Grammar Made Clear</h3>
-              <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
-                Develop a stronger foundation in German grammar and sentence structure without unnecessary confusion.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="border-t border-[#C4A779]/40 pt-6"
-            >
-              <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">03</span>
-              <h3 className="font-serif text-xl font-semibold mb-3">Speaking & Pronunciation</h3>
-              <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
-                Work towards more confident communication through guided practice and active dialogue.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="border-t border-[#C4A779]/40 pt-6"
-            >
-              <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">04</span>
-              <h3 className="font-serif text-xl font-semibold mb-3">Revision & Practice</h3>
-              <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
-                Revisit concepts regularly and strengthen your long-term understanding through targeted exercises.
-              </p>
-            </motion.div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 5 — THE LEARNING JOURNEY */}
-      <section id="journey" className="py-24 px-6 bg-[#F7F5F0]">
-        <div className="max-w-7xl mx-auto">
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-2xl mx-auto mb-20"
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">YOUR NEXT CHAPTER</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">Every new skill begins with a first step.</h2>
-            <p className="text-[#626262] text-lg">A simple, transparent pathway from absolute beginner to confident speaker.</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-3xl border border-[#E9E5DC] shadow-sm hover:border-[#C4A779] transition-all"
-            >
-              <span className="text-xs font-bold text-[#C4A779] tracking-widest uppercase block mb-4">STAGE 01</span>
-              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Begin</h3>
-              <p className="text-[#626262] text-sm leading-relaxed">
-                Understand the foundations of the German language, alphabet, phonetics, and introductory greetings.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-3xl border border-[#E9E5DC] shadow-sm hover:border-[#C4A779] transition-all"
-            >
-              <span className="text-xs font-bold text-[#C4A779] tracking-widest uppercase block mb-4">STAGE 02</span>
-              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Build</h3>
-              <p className="text-[#626262] text-sm leading-relaxed">
-                Develop vocabulary, core grammar rules, and reading comprehension for structured sentences.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-3xl border border-[#E9E5DC] shadow-sm hover:border-[#C4A779] transition-all"
-            >
-              <span className="text-xs font-bold text-[#C4A779] tracking-widest uppercase block mb-4">STAGE 03</span>
-              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Practise</h3>
-              <p className="text-[#626262] text-sm leading-relaxed">
-                Work on active speaking, listening exercises, reading dialogues, and written expression.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-3xl border border-[#E9E5DC] shadow-sm hover:border-[#C4A779] transition-all"
-            >
-              <span className="text-xs font-bold text-[#C4A779] tracking-widest uppercase block mb-4">STAGE 04</span>
-              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Progress</h3>
-              <p className="text-[#626262] text-sm leading-relaxed">
-                Continue towards the proficiency level that matches your personal, academic, or professional goals.
-              </p>
-            </motion.div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 5.5 — ABOUT US */}
-      <section id="about-us" className="py-24 px-6 bg-white border-t border-[#E9E5DC]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
+        </header>
+        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">About Us</h1>
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
             <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">WHO WE ARE</span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">About Us</h2>
 
@@ -795,13 +311,573 @@ export default function App() {
                 <p className="text-[#C4A779] font-medium mt-2">Learning Panorama — Learn Today. Grow Tomorrow.</p>
               </div>
             </div>
-          </motion.div>
+          </div>
+        </main>
+        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
+          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
+            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  if (currentPath === '#contact' || currentPath === '/contact') {
+    return (
+      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
+              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
+              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
+            </a>
+            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
+              <ArrowLeft size={16} /> Back to Home
+            </a>
+          </div>
+        </header>
+        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Contact Us</h1>
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
+            <p className="font-serif text-2xl font-medium text-[#1D2022]">We'd Love to Hear From You!</p>
+            <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
+
+            <div className="bg-[#E9E5DC]/50 p-8 rounded-3xl border border-[#E9E5DC]">
+              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-6">Get in Touch</h3>
+              <ul className="space-y-4">
+                <li><span className="font-semibold text-[#1D2022]">Business Name:</span> Learning Panorama</li>
+                <li><span className="font-semibold text-[#1D2022]">Email:</span> learningpanorama1@gmail.com</li>
+                <li><span className="font-semibold text-[#1D2022]">WhatsApp:</span> +91 8744828310</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Course Enquiries</h3>
+              <p className="mb-4">Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Course structure and topics</li>
+                <li>Upcoming batches and class schedules</li>
+                <li>Course fees and payment details</li>
+                <li>Demo sessions and enrolment</li>
+                <li>General questions about learning German</li>
+              </ul>
+            </div>
+
+            <div className="pt-8 border-t border-[#E9E5DC] text-center">
+              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Send Us a Message</h3>
+              <p className="mb-8">Have a question? You can contact us through email or WhatsApp, and we'll get back to you as soon as possible.</p>
+              <button
+                onClick={() => openEnquiry('General Enquiry')}
+                className="bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20ba5a] transition-all shadow-lg"
+              >
+                Send a Message on WhatsApp
+              </button>
+            </div>
+          </div>
+        </main>
+        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
+          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
+            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25 selection:text-[#1D2022]">
+
+      {/* FLOATING WHATSAPP QUICK BADGE */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <button
+          onClick={() => openEnquiry('WhatsApp Quick Chat')}
+          className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 group"
+          title="Chat on WhatsApp"
+        >
+          <MessageCircle size={22} />
+        </button>
+      </div>
+
+      {/* SECTION 1 — NAVIGATION */}
+      <motion.header
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]' : 'bg-transparent'}`}
+      >
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3 group py-1">
+            <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain bg-[#F7F5F0]/80 px-2 py-1 rounded-xl transition-transform group-hover:scale-105" />
+            <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#626262]">
+            <a href="#courses" className="hover:text-[#1D2022] transition-colors">Courses</a>
+            <a href="#approach" className="hover:text-[#1D2022] transition-colors">Learning Approach</a>
+            <a href="#journey" className="hover:text-[#1D2022] transition-colors">Journey</a>
+            <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
+            <a href="#resources" className="hover:text-[#1D2022] transition-colors">Resources</a>
+            <a href="/about" className="hover:text-[#1D2022] transition-colors">About Us</a>
+            <a href="/contact" className="hover:text-[#1D2022] transition-colors">Contact</a>
+          </nav>
+
+          {/* Primary CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={() => {
+                const whatsappNumber = "918744828310";
+                const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
+                window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+              }}
+              className="bg-[#1D2022] text-[#F7F5F0] px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-all duration-300 shadow-sm hover:shadow"
+            >
+              Enquire Now
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-[#1D2022] hover:text-[#C4A779] transition-colors"
+            aria-label="Toggle Menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <div className="space-y-1.5 w-6"><div className="h-0.5 bg-current w-full"></div><div className="h-0.5 bg-current w-4"></div><div className="h-0.5 bg-current w-full"></div></div>}
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden absolute top-full left-0 right-0 bg-[#F7F5F0] border-b border-[#E9E5DC] shadow-lg py-6 px-6 flex flex-col gap-4 overflow-hidden"
+            >
+              <button onClick={() => {
+                setMobileMenuOpen(false);
+                window.location.href = '/about';
+              }} className="text-lg font-medium text-[#1D2022] text-left">About Us</button>
+              <a href="/courses" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Courses</a>
+              <a href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Contact</a>
+              <a href="#approach" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Learning Approach</a>
+              <a href="#journey" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Journey</a>
+              <a href="#instructor" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Instructor</a>
+              <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">Resources</a>
+              <a href="#faqs" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#1D2022]">FAQs</a>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  const whatsappNumber = "918744828310";
+                  const text = encodeURIComponent(`Hi! I'm interested in Learning Panorama's German language course. Please share the course details.`);
+                  window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+                }}
+                className="mt-2 w-full bg-[#1D2022] text-[#F7F5F0] py-3 rounded-full text-center font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors"
+              >
+                Enquire Now
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.header>
+
+      {/* SECTION 2 — HERO */}
+      <section className="pt-32 pb-20 md:pt-44 md:pb-32 px-6 max-w-7xl mx-auto overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          {/* Left Text Column */}
+          <motion-div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 flex flex-col items-start"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9E5DC] text-[#1D2022] text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+              <Sparkles size={14} className="text-[#C4A779]" />
+              YOUR GERMAN JOURNEY STARTS HERE
+            </div>
+
+            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#1D2022] leading-[1.1] mb-6">
+              A new language. <br />
+              <span className="italic font-normal text-[#626262]">A wider world.</span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-[#626262] font-normal leading-relaxed max-w-xl mb-10">
+              Build your German skills step by step through structured lessons, practical conversation, and guided learning designed for Instagram learners.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-8">
+              <a
+                href="#courses"
+                className="bg-[#1D2022] text-[#F7F5F0] px-8 py-4 rounded-full font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-all duration-300 text-center shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+              >
+                Explore Courses
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              </a>
+              <button
+                onClick={() => openEnquiry('General Enquiry')}
+                className="border border-[#1D2022]/30 text-[#1D2022] px-8 py-4 rounded-full font-medium hover:border-[#1D2022] hover:bg-[#1D2022]/5 transition-all duration-300 text-center"
+              >
+                Enquire via WhatsApp
+              </button>
+            </div>
+
+            <div className="flex items-center gap-3 text-sm text-[#626262] pt-4 border-t border-[#E9E5DC] w-full">
+              <div className="w-2 h-2 rounded-full bg-[#C4A779] animate-pulse"></div>
+              <span>Start with the basics. Build confidence. Keep progressing.</span>
+            </div>
+          </motion-div>
+
+          {/* Right Editorial Image */}
+          <motion-div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#E9E5DC] aspect-[4/5] group">
+              <img
+                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1000&auto=format&fit=crop"
+                alt="German Language Study and Books"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1D2022]/50 via-transparent to-transparent"></div>
+
+              <div className="absolute bottom-6 left-6 right-6 bg-[#F7F5F0]/95 backdrop-blur-md p-6 rounded-2xl border border-[#E9E5DC] shadow-lg">
+                <p className="font-serif text-lg font-medium text-[#1D2022] mb-1">"Sprich Deutsch mit Zuversicht."</p>
+                <p className="text-xs text-[#626262]">Master grammar, phonetics, and dialogue with expert coaching.</p>
+              </div>
+            </div>
+
+            {/* Decorative gold ring */}
+            <div className="absolute -top-6 -right-6 w-28 h-28 border border-[#C4A779]/50 rounded-full pointer-events-none hidden sm:block animate-spin"></div>
+          </motion-div>
+
+        </div>
+      </section>
+
+      {/* INSTAGRAM BANNER NOTICE (REMOVED) */}
+      <div className="hidden"></div>
+
+      {/* SECTION 3 — COURSE PROGRAMMES */}
+      <section id="courses" className="py-24 px-6 bg-[#F7F5F0]">
+        <div className="max-w-7xl mx-auto">
+
+          <motion-div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">FIND YOUR STARTING POINT</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">German learning, made clearer.</h2>
+            <p className="text-[#626262] text-lg">Choose a learning level that matches your experience and build your skills with a structured approach.</p>
+          </motion-div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            {/* A1 Card */}
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -8 }}
+              className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm hover:shadow-xl group"
+            >
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <span className="font-serif text-4xl font-bold text-[#1D2022] group-hover:text-[#C4A779] transition-colors">A1</span>
+                  <span className="text-xs font-semibold tracking-wider uppercase px-3.5 py-1 bg-[#E9E5DC]/70 rounded-full text-[#1D2022]">Beginner</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">German A1</h3>
+                <p className="text-[#626262] text-sm mb-6 leading-relaxed">
+                  Designed for absolute beginners. Establish core vocabulary, present-tense grammar, and simple everyday interactions.
+                </p>
+                <ul className="space-y-3 mb-8 text-sm text-[#1D2022]">
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Basic greetings & self-introduction</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Essential sentence structures</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Everyday conversational basics</span>
+                  </li>
+                </ul>
+              </div>
+              <button
+                onClick={() => openEnquiry('German A1 — Beginner')}
+                className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
+              >
+                Enquire About This Level
+                <ChevronRight size={16} />
+              </button>
+            </motion-div>
+
+            {/* A2 Card */}
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -8 }}
+              className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm hover:shadow-xl group"
+            >
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <span className="font-serif text-4xl font-bold text-[#1D2022] group-hover:text-[#C4A779] transition-colors">A2</span>
+                  <span className="text-xs font-semibold tracking-wider uppercase px-3.5 py-1 bg-[#E9E5DC]/70 rounded-full text-[#1D2022]">Elementary</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">German A2</h3>
+                <p className="text-[#626262] text-sm mb-6 leading-relaxed">
+                  Expand your fluency. Learn past tenses, describe your background, hobbies, and navigate routine social or professional exchanges.
+                </p>
+                <ul className="space-y-3 mb-8 text-sm text-[#1D2022]">
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Past & future tense mastery</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Expanded vocabulary for daily life</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Expressing opinions & preferences</span>
+                  </li>
+                </ul>
+              </div>
+              <button
+                onClick={() => openEnquiry('German A2 — Elementary')}
+                className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
+              >
+                Enquire About This Level
+                <ChevronRight size={16} />
+              </button>
+            </motion-div>
+
+            {/* B1 Card */}
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -8 }}
+              className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm hover:shadow-xl group"
+            >
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <span className="font-serif text-4xl font-bold text-[#1D2022] group-hover:text-[#C4A779] transition-colors">B1</span>
+                  <span className="text-xs font-semibold tracking-wider uppercase px-3.5 py-1 bg-[#E9E5DC]/70 rounded-full text-[#1D2022]">Intermediate</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">German B1</h3>
+                <p className="text-[#626262] text-sm mb-6 leading-relaxed">
+                  Achieve independent communication. Handle most situations while travelling and discuss familiar topics with greater nuance.
+                </p>
+                <ul className="space-y-3 mb-8 text-sm text-[#1D2022]">
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Complex sentence structures</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Professional & workplace German</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C4A779]" />
+                    <span>Advanced listening & discussion</span>
+                  </li>
+                </ul>
+              </div>
+              <button
+                onClick={() => openEnquiry('German B1 — Intermediate')}
+                className="w-full bg-[#1D2022] text-[#F7F5F0] py-3.5 rounded-2xl font-medium hover:bg-[#C4A779] hover:text-[#1D2022] transition-colors flex items-center justify-center gap-2 group-hover:shadow"
+              >
+                Enquire About This Level
+                <ChevronRight size={16} />
+              </button>
+            </motion-div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 4 — LEARNING APPROACH */}
+      <section id="approach" className="py-24 px-6 bg-[#1D2022] text-[#F7F5F0]">
+        <div className="max-w-7xl mx-auto">
+
+          <motion-div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mb-20"
+          >
+            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">OUR APPROACH</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#F7F5F0] mb-4">Learn with clarity. Progress with confidence.</h2>
+            <div className="w-16 h-[1px] bg-[#C4A779] mt-6"></div>
+          </motion-div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="border-t border-[#C4A779]/40 pt-6"
+            >
+              <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">01</span>
+              <h3 className="font-serif text-xl font-semibold mb-3">Structured Lessons</h3>
+              <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
+                Build your understanding through a clear progression of topics designed for logical retention.
+              </p>
+            </motion-div>
+
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="border-t border-[#C4A779]/40 pt-6"
+            >
+              <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">02</span>
+              <h3 className="font-serif text-xl font-semibold mb-3">Grammar Made Clear</h3>
+              <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
+                Develop a stronger foundation in German grammar and sentence structure without unnecessary confusion.
+              </p>
+            </motion-div>
+
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="border-t border-[#C4A779]/40 pt-6"
+            >
+              <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">03</span>
+              <h3 className="font-serif text-xl font-semibold mb-3">Speaking & Pronunciation</h3>
+              <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
+                Work towards more confident communication through guided practice and active dialogue.
+              </p>
+            </motion-div>
+
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="border-t border-[#C4A779]/40 pt-6"
+            >
+              <span className="font-serif text-3xl font-bold text-[#C4A779] block mb-4">04</span>
+              <h3 className="font-serif text-xl font-semibold mb-3">Revision & Practice</h3>
+              <p className="text-[#E9E5DC]/80 text-sm leading-relaxed">
+                Revisit concepts regularly and strengthen your long-term understanding through targeted exercises.
+              </p>
+            </motion-div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 5 — THE LEARNING JOURNEY */}
+      <section id="journey" className="py-24 px-6 bg-[#F7F5F0]">
+        <div className="max-w-7xl mx-auto">
+
+          <motion-div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-2xl mx-auto mb-20"
+          >
+            <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">YOUR NEXT CHAPTER</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">Every new skill begins with a first step.</h2>
+            <p className="text-[#626262] text-lg">A simple, transparent pathway from absolute beginner to confident speaker.</p>
+          </motion-div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -5 }}
+              className="bg-white p-8 rounded-3xl border border-[#E9E5DC] shadow-sm hover:border-[#C4A779] transition-all"
+            >
+              <span className="text-xs font-bold text-[#C4A779] tracking-widest uppercase block mb-4">STAGE 01</span>
+              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Begin</h3>
+              <p className="text-[#626262] text-sm leading-relaxed">
+                Understand the foundations of the German language, alphabet, phonetics, and introductory greetings.
+              </p>
+            </motion-div>
+
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -5 }}
+              className="bg-white p-8 rounded-3xl border border-[#E9E5DC] shadow-sm hover:border-[#C4A779] transition-all"
+            >
+              <span className="text-xs font-bold text-[#C4A779] tracking-widest uppercase block mb-4">STAGE 02</span>
+              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Build</h3>
+              <p className="text-[#626262] text-sm leading-relaxed">
+                Develop vocabulary, core grammar rules, and reading comprehension for structured sentences.
+              </p>
+            </motion-div>
+
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -5 }}
+              className="bg-white p-8 rounded-3xl border border-[#E9E5DC] shadow-sm hover:border-[#C4A779] transition-all"
+            >
+              <span className="text-xs font-bold text-[#C4A779] tracking-widest uppercase block mb-4">STAGE 03</span>
+              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Practise</h3>
+              <p className="text-[#626262] text-sm leading-relaxed">
+                Work on active speaking, listening exercises, reading dialogues, and written expression.
+              </p>
+            </motion-div>
+
+            <motion-div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -5 }}
+              className="bg-white p-8 rounded-3xl border border-[#E9E5DC] shadow-sm hover:border-[#C4A779] transition-all"
+            >
+              <span className="text-xs font-bold text-[#C4A779] tracking-widest uppercase block mb-4">STAGE 04</span>
+              <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-3">Progress</h3>
+              <p className="text-[#626262] text-sm leading-relaxed">
+                Continue towards the proficiency level that matches your personal, academic, or professional goals.
+              </p>
+            </motion-div>
+
+          </div>
+
         </div>
       </section>
 
       {/* SECTION 6 — MEET THE INSTRUCTOR */}
       <section id="instructor" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
-        <motion.div
+        <motion-div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: false, amount: 0.2 }}
@@ -842,67 +918,14 @@ export default function App() {
 
           </div>
 
-        </motion.div>
+        </motion-div>
       </section>
-
-      {/* SECTION 6.5 — CONTACT US */}
-      <section id="contact" className="py-24 px-6 bg-[#F7F5F0]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">GET IN TOUCH</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Contact Us</h2>
-
-            <div className="space-y-12 text-[#626262] text-lg leading-relaxed">
-              <p className="font-serif text-2xl font-medium text-[#1D2022]">We'd Love to Hear From You!</p>
-              <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
-
-              <div className="bg-[#E9E5DC]/50 p-8 rounded-3xl border border-[#E9E5DC]">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-6">Get in Touch</h3>
-                <ul className="space-y-4">
-                  <li><span className="font-semibold text-[#1D2022]">Business Name:</span> Learning Panorama</li>
-                  <li><span className="font-semibold text-[#1D2022]">Email:</span> learningpanorama1@gmail.com</li>
-                  <li><span className="font-semibold text-[#1D2022]">WhatsApp:</span> +91 8744828310</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Course Enquiries</h3>
-                <p className="mb-4">Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Course structure and topics</li>
-                  <li>Upcoming batches and class schedules</li>
-                  <li>Course fees and payment details</li>
-                  <li>Demo sessions and enrolment</li>
-                  <li>General questions about learning German</li>
-                </ul>
-              </div>
-
-              <div className="pt-8 border-t border-[#E9E5DC] text-center">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Send Us a Message</h3>
-                <p className="mb-8">Have a question? You can contact us through email or WhatsApp, and we'll get back to you as soon as possible.</p>
-                <button
-                  onClick={() => openEnquiry('General Enquiry')}
-                  className="bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20ba5a] transition-all shadow-lg"
-                >
-                  Send a Message on WhatsApp
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
 
       {/* SECTION 7 — LEARNING RESOURCES */}
       <section id="resources" className="py-24 px-6 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto">
 
-          <motion.div
+          <motion-div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -916,14 +939,14 @@ export default function App() {
             <p className="text-[#626262] max-w-md mt-4 md:mt-0 text-sm">
               Articles and guides to help you understand German grammar rules, pronunciation nuances, and study habits.
             </p>
-          </motion.div>
+          </motion-div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
             <motion.article
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport{{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ y: -5 }}
               className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm"
@@ -942,10 +965,10 @@ export default function App() {
 
             <motion.article
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView{{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -5 }}
+              whileHover{{ y: -5 }}
               className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm"
             >
               <div>
@@ -962,16 +985,15 @@ export default function App() {
 
             <motion.article
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ y: -5 }}
+              whileInView{{ opacity: 1, y: 0 }}
+              transition{{ duration: 0.5, delay: 0.3 }}
+              whileHover{{ y: -5 }}
               className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm"
             >
               <div>
                 <span className="text-xs text-[#626262] uppercase tracking-wider block mb-2 font-semibold">Vocabulary</span>
                 <h3 className="font-serif text-xl font-bold text-[#1D2022] mb-3">Everyday German Phrases to Practise</h3>
-                <p className="text-[#626262] text-sm mb-6 leading-relaxed">
+                <p className="text-[#626262] text-sm mb-6 leading-relaxed>
                   Practical everyday expressions to build confidence in conversation from day one.
                 </p>
               </div>
@@ -989,26 +1011,26 @@ export default function App() {
       <section id="faqs" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
         <div className="max-w-4xl mx-auto">
 
-          <motion.div
+          <motion-div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
+            viewport{{ once: false, amount: 0.3 }}
+            transition{{ duration: 0.6 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <span className="text-xs font-semibold tracking-widest uppercase text-[#626262] block mb-3">QUESTIONS & ANSWERS</span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-4">Frequently Asked Questions</h2>
             <p className="text-[#626262]">Everything you need to know about our courses and learning approach.</p>
-          </motion.div>
+          </motion-div>
 
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <motion.div
+              <motion-div
                 key={idx}
                 initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                whileInView{{ opacity: 1, y: 0 }}
+                viewport{{ once: false, amount: 0.2 }}
+                transition{{ duration: 0.4, delay: idx * 0.05 }}
                 className="bg-[#F7F5F0] rounded-2xl border border-[#E9E5DC] overflow-hidden transition-colors"
               >
                 <button
@@ -1023,7 +1045,7 @@ export default function App() {
                     {faq.a}
                   </div>
                 )}
-              </motion.div>
+              </motion-div>
             ))}
           </div>
 
@@ -1031,11 +1053,11 @@ export default function App() {
       </section>
 
       {/* SECTION 9 — FINAL CALL TO ACTION */}
-      <motion.section
+      <motion-section
         initial={{ opacity: 0, scale: 0.98 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
+        whileInView{{ opacity: 1, scale: 1 }}
+        viewport{{ once: false, amount: 0.3 }}
+        transition{{ duration: 0.6 }}
         className="py-24 px-6 bg-[#1D2022] text-[#F7F5F0] text-center"
       >
         <div className="max-w-3xl mx-auto">
@@ -1060,7 +1082,7 @@ export default function App() {
             </a>
           </div>
         </div>
-      </motion.section>
+      </motion-section>
 
       {/* SECTION 10 — FOOTER */}
       <footer id="legal-footer" className="bg-[#1D2022] text-[#E9E5DC] border-t border-[#C4A779]/20 pt-16 pb-12 px-6">
@@ -1081,13 +1103,19 @@ export default function App() {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-semibold text-[#F7F5F0] mb-4">Quick Links</h4>
+            <h4 className="font-serif text-lg font-semibold text-[#F7F5F0] mb-4">Company</h4>
             <ul className="space-y-2.5 text-sm text-[#E9E5DC]/70">
-              <li><a href="#courses" className="hover:text-[#C4A779] transition-colors">Courses</a></li>
-              <li><a href="#approach" className="hover:text-[#C4A779] transition-colors">Learning Approach</a></li>
-              <li><a href="#journey" className="hover:text-[#C4A779] transition-colors">Journey</a></li>
-              <li><a href="#instructor" className="hover:text-[#C4A779] transition-colors">Instructor</a></li>
-              <li><a href="#faqs" className="hover:text-[#C4A779] transition-colors">FAQs</a></li>
+              <li><a href="/about" className="hover:text-[#C4A779] transition-colors">About Us</a></li>
+              <li><a href="/contact" className="hover:text-[#C4A779] transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-serif text-lg font-semibold text-[#F7F5F0] mb-4">Legal & Policies</h4>
+            <ul className="space-y-2.5 text-sm text-[#E9E5DC]/70">
+              <li><a href="#terms" className="hover:text-[#C4A779] transition-colors">Terms and Conditions</a></li>
+              <li><a href="#privacy" className="hover:text-[#C4A779] transition-colors">Privacy Policy</a></li>
+              <li><a href="#refund" className="hover:text-[#C4A779] transition-colors">Refund Policy</a></li>
             </ul>
           </div>
 
@@ -1112,8 +1140,8 @@ export default function App() {
               <a href="#terms" className="hover:text-[#C4A779] transition-colors">Terms and Conditions</a>
               <a href="#privacy" className="hover:text-[#C4A779] transition-colors">Privacy Policy</a>
               <a href="#refund" className="hover:text-[#C4A779] transition-colors">Refund Policy</a>
-              <a href="#about-us" className="hover:text-[#C4A779] transition-colors">About Us</a>
-              <a href="#contact" className="hover:text-[#C4A779] transition-colors">Contact</a>
+              <a href="/about" className="hover:text-[#C4A779] transition-colors">About Us</a>
+              <a href="/contact" className="hover:text-[#C4A779] transition-colors">Contact</a>
             </div>
         </div>
       </footer>
