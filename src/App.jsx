@@ -838,76 +838,6 @@ export default function App() {
         </div>
       </section>
 
-            {/* SECTION 5.5 — ABOUT US */}
-      <section id="about-us" className="py-24 px-6 bg-white border-t border-[#E9E5DC]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">WHO WE ARE</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">About Us</h2>
-
-            <div className="space-y-12 text-[#626262] text-lg leading-relaxed">
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Welcome to Learning Panorama</h3>
-                <p className="italic text-xl text-[#1D2022]">Learn Today. Grow Tomorrow.</p>
-                <p>At Learning Panorama, we believe that learning opens doors to new opportunities, personal growth, and a brighter future.</p>
-                <p>Our mission is to make learning accessible, practical, and engaging through structured online education that helps learners build knowledge, develop useful skills, and move closer to their goals.</p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Approach</h3>
-                <p>We aim to create a supportive learning environment where students can learn step by step, ask questions freely, and develop confidence through consistent practice. We believe that effective learning goes beyond theory — it involves understanding concepts, applying knowledge, and building skills that can be used in real-life situations.</p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our German Language Learning Program</h3>
-                <p>As we begin our journey, we are focusing on online German language education for beginners. Our planned program aims to help learners build a strong foundation in German through grammar, vocabulary, pronunciation, reading, listening, and speaking practice.</p>
-                <p>Whether you are exploring German for career opportunities, higher education, future plans in Germany, or personal interest, we aim to make your learning journey structured, approachable, and rewarding.</p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Vision</h3>
-                <p>Our vision is to grow into a trusted learning platform that connects students with quality education, knowledgeable instructors, and opportunities for continuous development.</p>
-                <p>As Learning Panorama grows, we aim to expand our educational offerings while maintaining our commitment to practical learning, learner support, and quality education.</p>
-              </div>
-
-              <div className="space-y-6">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022]">Our Commitment</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Accessible Learning</span>
-                    <span className="text-sm">Making learning approachable for beginners.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Structured Education</span>
-                    <span className="text-sm">Following a clear, step-by-step learning approach.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Practical Skills</span>
-                    <span className="text-sm">Encouraging practice, participation, and real-world application.</span>
-                  </div>
-                  <div className="bg-[#F7F5F0] p-6 rounded-2xl border border-[#E9E5DC]">
-                    <span className="font-bold text-[#1D2022] block mb-1">Continuous Growth</span>
-                    <span className="text-sm">Supporting learners as they develop their knowledge and confidence.</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-8 border-t border-[#E9E5DC] text-center">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Begin Your Learning Journey</h3>
-                <p className="mb-6">Every new skill begins with a first step. At Learning Panorama, we want to help you take that step with confidence.</p>
-                <p className="font-serif text-xl font-bold text-[#1D2022]">Learning starts today. Opportunities grow tomorrow.</p>
-                <p className="text-[#C4A779] font-medium mt-2">Learning Panorama — Learn Today. Grow Tomorrow.</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* SECTION 6 — MEET THE INSTRUCTOR */}
       <section id="instructor" className="py-24 px-6 bg-[#E9E5DC]/50 border-t border-[#E9E5DC]">
         <motion.div
@@ -1006,57 +936,6 @@ export default function App() {
         </div>
       </section>
 
-            {/* SECTION 6.5 — CONTACT US */}
-      <section id="contact" className="py-24 px-6 bg-[#F7F5F0]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#C4A779] block mb-3">GET IN TOUCH</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">Contact Us</h2>
-
-            <div className="space-y-12 text-[#626262] text-lg leading-relaxed">
-              <p className="font-serif text-2xl font-medium text-[#1D2022]">We'd Love to Hear From You!</p>
-              <p>At Learning Panorama, we're happy to help you take the next step in your learning journey. Whether you're interested in learning German, want to know more about our upcoming courses, or have questions about our learning programs, feel free to get in touch with us.</p>
-
-              <div className="bg-[#E9E5DC]/50 p-8 rounded-3xl border border-[#E9E5DC]">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-6">Get in Touch</h3>
-                <ul className="space-y-4">
-                  <li><span className="font-semibold text-[#1D2022]">Business Name:</span> Learning Panorama</li>
-                  <li><span className="font-semibold text-[#1D2022]">Email:</span> learningpanorama1@gmail.com</li>
-                  <li><span className="font-semibold text-[#1D2022]">WhatsApp:</span> +91 8744828310</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Course Enquiries</h3>
-                <p className="mb-4">Interested in our planned online German language program for beginners? Contact us to learn more about:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Course structure and topics</li>
-                  <li>Upcoming batches and class schedules</li>
-                  <li>Course fees and payment details</li>
-                  <li>Demo sessions and enrolment</li>
-                  <li>General questions about learning German</li>
-                </ul>
-              </div>
-
-              <div className="pt-8 border-t border-[#E9E5DC] text-center">
-                <h3 className="font-serif text-2xl font-bold text-[#1D2022] mb-4">Send Us a Message</h3>
-                <p className="mb-8">Have a question? You can contact us through email or WhatsApp, and we'll get back to you as soon as possible.</p>
-                <button
-                  onClick={() => openEnquiry('General Enquiry')}
-                  className="bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20ba5a] transition-all shadow-lg"
-                >
-                  Send a Message on WhatsApp
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* SECTION 7 — LEARNING RESOURCES */}
       <section id="resources" className="py-24 px-6 bg-[#F7F5F0]">
