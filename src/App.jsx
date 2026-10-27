@@ -195,44 +195,7 @@ export default function App() {
     );
   }
 
-  if (currentPath === '#about-us' || currentPath === '/about-us') {
-    return (
-      <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-3 group py-1">
-              <img src="/logo.png" alt="Learning Panorama Logo" className="h-10 md:h-12 w-auto object-contain" />
-              <span className="font-serif text-2xl font-bold text-[#1D2022] hidden sm:block">Learning Panorama</span>
-            </a>
-            <a href="#" onClick={() => { window.location.hash = ''; setCurrentPath(''); }} className="flex items-center gap-2 text-sm font-medium text-[#626262] hover:text-[#1D2022] transition-colors">
-              <ArrowLeft size={16} /> Back to Home
-            </a>
-          </div>
-        </header>
-        <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1D2022] mb-8">About Us</h1>
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E9E5DC] shadow-sm text-[#626262] space-y-6 leading-relaxed">
-            <p className="font-medium text-[#1D2022]">Business Name: Learning Panorama | Contact Email: learningpanorama1@gmail.com</p>
-            <section className="space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Who We Are</h2>
-              <p>Learning Panorama is a German language coaching academy dedicated to structured learning, clarity, and genuine conversational confidence. We help beginners build a strong foundation in German through step-by-step lessons and practical practice.</p>
-            </section>
-            <section className="space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#1D2022]">Our Mission</h2>
-              <p>Our mission is to make learning accessible, practical, and engaging through structured online education that helps learners build knowledge, develop useful skills, and move closer to their goals.</p>
-            </section>
-          </div>
-        </main>
-        <footer className="bg-[#1D2022] text-[#E9E5DC] py-12 px-6 border-t border-[#C4A779]/20">
-          <div className="max-w-7xl mx-auto text-center text-xs text-[#E9E5DC]/50">
-            <p>© {new Date().getFullYear()} Learning Panorama. All rights reserved.</p>
-          </div>
-        </footer>
-      </div>
-    );
-  }
-
-  if (currentPath === '#contact' || currentPath === '/contact') {
+  if (currentPath === '#terms' || currentPath === '/terms') {
     return (
       <div className="min-h-screen bg-[#F7F5F0] text-[#1D2022] font-sans selection:bg-[#C4A779]/25">
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F0]/90 backdrop-blur-md shadow-sm border-b border-[#E9E5DC]">
@@ -307,9 +270,7 @@ export default function App() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#626262]">
-            <a href="#about-us" className="hover:text-[#1D2022] transition-colors">About Us</a>
             <a href="#courses" className="hover:text-[#1D2022] transition-colors">Courses</a>
-            <a href="#contact" className="hover:text-[#1D2022] transition-colors">Contact</a>
             <a href="#approach" className="hover:text-[#1D2022] transition-colors">Learning Approach</a>
             <a href="#journey" className="hover:text-[#1D2022] transition-colors">Journey</a>
             <a href="#instructor" className="hover:text-[#1D2022] transition-colors">Instructor</a>
