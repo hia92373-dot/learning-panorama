@@ -946,7 +946,7 @@ export default function App() {
             <motion.article
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport{{ once: false, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ y: -5 }}
               className="bg-white rounded-3xl p-8 border border-[#E9E5DC] flex flex-col justify-between hover:border-[#C4A779] transition-all shadow-sm"
